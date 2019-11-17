@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<com.rengwuxian.materialedittext.MaterialEditText xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/edt_name"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Name"
+    android:inputType="textPassword"
+    app:met_baseColor="@android:color/black"
+    app:met_iconLeft="@drawable/ic_lock"
+    app:met_iconPadding="0dp"
+    app:met_primaryColor="@android:color/black"
+    app:met_textColor="#AFAFAF" />
+
