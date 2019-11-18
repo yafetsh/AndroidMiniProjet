@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91051e8f-53c5-4e3e-8b7b-185e0a0e1525" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MiniProjet/app/src/main/java/com/example/miniprojetandroid/Retrofit/RetrofitClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/MiniProjet/app/src/main/java/com/example/miniprojetandroid/Retrofit/RetrofitClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MiniProjet/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MiniProjet/app/src/main/res/layout/activity_main.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -73,6 +73,7 @@
       <workItem from="1573874137175" duration="1574000" />
       <workItem from="1573878153728" duration="1686000" />
       <workItem from="1573883491912" duration="569000" />
+      <workItem from="1574077617414" duration="753000" />
     </task>
     <servers />
   </component>
@@ -84,7 +85,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
