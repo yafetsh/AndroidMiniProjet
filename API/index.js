@@ -42,6 +42,7 @@ var sha512 = function (password,salt) {
     };
     
 };
+/* Hash password */
 function saltHashPassword(userPassword) {
     var salt = genRandomString(16); //Gen Random string with 16 charachters
     var passwordData = sha512(userPassword,salt) ;
@@ -58,6 +59,7 @@ var app = express();
 app.use(bodyParser.json()); // Accept JSON params
 app.use(bodyParser.urlencoded({extended:true})); //Accept UrlEncoded params
 
+/* REGISTER */
 app.post('/register/',(req,res,next)=>{
     var post_data = req.body;  //Get POST params
     var uid = uuid.v4();   //Get  UUID V4
@@ -88,6 +90,9 @@ app.post('/register/',(req,res,next)=>{
     });
 
 })
+
+/* LOGIN */
+
 app.post('/login/',(req,res,next)=>{
     var post_data = req.body;
 
@@ -123,6 +128,85 @@ app.post('/login/',(req,res,next)=>{
 
 
 })
+
+
+/* SHOW EVENT */
+app.get('/evenement/show', (req, res) => {
+
+    con.query('SELECT * FROM evenement ORDER BY date_debut_evenement desc',((err, results, fields) => {
+        if(!err){
+            res.send(results);
+        }
+        else {
+            console.log(err)
+
+        }
+    }))
+
+});
+
+/* ADD EVENT */
+app.post('/evenement/add',(req,res,next)=>{
+    var post_data = req.body;  //Get POST params
+    var nom_evenement = post_data.nom_evenement;
+    var type_evenement = post_data.type_evenement;
+    var date_debut_evenement = post_data.date_debut_evenement;
+    var date_fin_evenement = post_data.date_fin_evenement;
+    var distance_evenement = post_data.distance_evenement;
+    var photo_evenement = post_data.photo_evenement;
+    var lieux_evenement = post_data.lieux_evenement;
+
+    con.query('INSERT INTO `evenement`(`nom_evenement`, `type_evenement`, `date_debut_evenement`, `date_fin_evenement`, `distance_evenement`, `photo_evenement`, `lieux_evenement`) ' +
+        'VALUES (?,?,NOW(),NOW(),?,?,?)',[nom_evenement,type_evenement,distance_evenement,photo_evenement,lieux_evenement],function (err,result,fields) {
+                if (err) throw err;
+
+                res.json('event added successfully !');
+
+            });
+
+    })
+
+/* SHOW EVENT DETAILS */
+app.get('/evenement/show/:id', (req, res) => {
+    var post_data = req.body;  //Get POST params
+
+    const id = req.params.id;
+
+
+    con.query('SELECT * FROM `evenement` WHERE id_evenement =?' ,[id],  (error, result) => {
+        if (error) throw error;
+
+        res.send(result);
+        console.log(result);
+    });
+
+});
+
+
+/* DELETE EVENT*/
+
+app.delete('/evenement/delete/:id',(req, res) => {
+    const id = req.params.id;
+    let sql = 'DELETE from evenement where id_evenement =?';
+    let query = con.query(sql,[id],(err, result) => {
+        if(err) throw err;
+        res.send('Event deleted.');
+    });
+});
+
+/* UPDATE EVENT */
+app.put('/evenement/edit/:id', (req, res) => {
+
+    const id = req.params.id;
+    con.query('UPDATE evenement SET ? WHERE id_evenement = ?', [req.body, id], (error, result) => {
+        if (error) throw error;
+
+        res.send('Event updated successfully.');
+    });
+});
+
+
+
 
 /*app.get("/",(req,res,next) =>{
     console.log('Password: 123456');
