@@ -101,9 +101,8 @@ app.post('/login/',(req,res,next)=>{
     var email = post_data.email;
 
     con.query('SELECT * FROM user where email=?',[email],function (err,result,fields) {
-        con.on('error', function (err) {
-            console.log('[MYSQL ERROR]', err);
-        });
+        if (error) throw error;
+
         if (result && result.length)
 
         {
@@ -135,7 +134,7 @@ app.get('/evenement/show', (req, res) => {
 
     con.query('SELECT * FROM evenement ORDER BY date_debut_evenement desc',((err, results, fields) => {
         if(!err){
-            res.send(results);
+            res.send({ evenements:results });
         }
         else {
             console.log(err)
