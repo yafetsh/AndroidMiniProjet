@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (4.9.1)
+  - PGMenu (1.0.0)
+  - SwiftyJSON (5.0.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - PGMenu
+  - SwiftyJSON
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - PGMenu
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  PGMenu: 205590556d3627170e25e6f9de15314105cd6d5c
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+
+PODFILE CHECKSUM: d8078a4fa18b244d3aed01c1cb70fa1d48b6b936
+
+COCOAPODS: 1.8.4

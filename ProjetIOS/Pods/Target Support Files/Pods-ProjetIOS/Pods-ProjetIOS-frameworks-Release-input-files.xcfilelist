@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/PGMenu/PGMenu.framework
+${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework
