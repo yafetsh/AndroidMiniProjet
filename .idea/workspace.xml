@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="91051e8f-53c5-4e3e-8b7b-185e0a0e1525" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/API/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MiniProjet/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/MiniProjet/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjetIOS/ProjetIOS.xcworkspace/xcuserdata/macbookpro.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS.xcworkspace/xcuserdata/macbookpro.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Base.lproj/Main.storyboard" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/LoginViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/LoginViewController.swift" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -81,6 +82,7 @@
       <workItem from="1574431872939" duration="159000" />
       <workItem from="1574517961971" duration="4039000" />
       <workItem from="1574554212797" duration="420000" />
+      <workItem from="1574605163794" duration="860000" />
     </task>
     <servers />
   </component>

@@ -18,6 +18,18 @@ var con = mysql.createConnection({
     database: 'miniprojet',
     socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock'
 });
+
+//Connect to MySQL
+/*var con = mysql.createConnection({
+    host:'127.0.0.1',
+    port: '3306',
+    user: 'root',
+    password: '',
+    connector: 'mysql',
+    database: 'miniprojet',
+});*/
+
+
 con.connect((err)=> {
     if(!err)
         console.log('Connection Established Successfully');
@@ -77,13 +89,13 @@ app.post('/register/',(req,res,next)=>{
             
         });
         if (result && result.length)
-            res.json('User already exists!!!');
+            res.json('Cette adresse mail est déjà utilisé');
         else {
-            con.query('INSERT INTO `user`(`unique_id`, `name`, `email`, `encrypted_password`, `salt`, `created_at`, `updated_at`) ' +
-                'VALUES (?,?,?,?,?,NOW(),NOW())',[uid,name,email,password,salt],function (err,result,fields) {
+            con.query('INSERT INTO `user`(`unique_id`, `name`, `email`, `encrypted_password`, `salt`, `created_at`, `updated_at`, `prenom`, `tel_user`) ' +
+                'VALUES (?,?,?,?,?,NOW(),NOW(),?,?)',[uid,name,email,password,salt,prenom,tel_user],function (err,result,fields) {
                 if (err) throw err;
 
-                res.json('Register successfully !');
+                res.json('Vous ètes inscrit avec succés');
 
             })
         }
@@ -109,11 +121,11 @@ app.post('/login/',(req,res,next)=>{
                 if (encrypted_password == hashed_password)
                     res.end(JSON.stringify(result[0]))
                 else
-                    res.end(JSON.stringify('Wrong Password'));
+                    res.end(JSON.stringify('Vérifiez votre mot de passe'));
             }
         else {
 
-                res.json('user not exists!!');
+                res.json('Utilisateur introuvable');
 
          }
 
@@ -153,7 +165,7 @@ app.post('/evenement/add',(req,res,next)=>{
         'VALUES (?,?,NOW(),NOW(),?,?,?)',[nom_evenement,type_evenement,distance_evenement,photo_evenement,lieux_evenement],function (err,result,fields) {
                 if (err) throw err;
 
-                res.json('event added successfully !');
+                res.json('Evenement ajouté avec succés');
 
             });
 
@@ -183,7 +195,7 @@ app.delete('/evenement/delete/:id',(req, res) => {
     let sql = 'DELETE from evenement where id_evenement =?';
     let query = con.query(sql,[id],(err, result) => {
         if(err) throw err;
-        res.send('Event deleted.');
+        res.send('Evènement supprimé avec succés');
     });
 });
 
@@ -194,7 +206,7 @@ app.put('/evenement/edit/:id', (req, res) => {
     con.query('UPDATE evenement SET ? WHERE id_evenement = ?', [req.body, id], (error, result) => {
         if (error) throw error;
 
-        res.send('Event updated successfully.');
+        res.send('Evenement modifié avec succés');
     });
 });
 

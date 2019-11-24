@@ -56,19 +56,19 @@ class LoginViewController: UIViewController {
                 let resJson = JSON(responseObject.result.value!)
                 print(resJson)
                 print(resJson["name"])
-                if (resJson != "Wrong Password") && (resJson != "user not exists!!") {
+                if (resJson != "Vérifiez votre mot de passe") && (resJson != "Utilisateur introuvable") {
                     self.performSegue(withIdentifier: "goToHome", sender: nil)
                 }
-                if (resJson == "Wrong Password") {
-                    let myalert = UIAlertController(title: " CAMP WITH US", message: "Wrong Password ", preferredStyle: UIAlertController.Style.alert)
+                if (resJson == "Vérifiez votre mot de passe") {
+                    let myalert = UIAlertController(title: " CAMP WITH US", message: "Vérifiez votre mot de passe", preferredStyle: UIAlertController.Style.alert)
 
-myalert.addAction(UIAlertAction(title: "Try Again", style: .default) { (action:UIAlertAction!) in
+myalert.addAction(UIAlertAction(title: "Réessayez", style: .default) { (action:UIAlertAction!) in
                                         print("retry")
                                                                     })
                                                                     self.present(myalert, animated: true)
                 }
-                     if (resJson == "user not exists!!") {
-                                    let myalert = UIAlertController(title: " CAMP WITH US", message: "User does not exist ", preferredStyle: UIAlertController.Style.alert)
+                     if (resJson == "Utilisateur introuvable") {
+                                    let myalert = UIAlertController(title: " CAMP WITH US", message: "Utilisateur introuvable", preferredStyle: UIAlertController.Style.alert)
 
                 myalert.addAction(UIAlertAction(title: "Inscrivez vous", style: .default) { (action:UIAlertAction!) in
                                                         print("retry")
