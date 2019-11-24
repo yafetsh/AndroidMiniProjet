@@ -2,49 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91051e8f-53c5-4e3e-8b7b-185e0a0e1525" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS.xcodeproj/project.pbxproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS.xcodeproj/project.xcworkspace/contents.xcworkspacedata" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS.xcodeproj/project.xcworkspace/xcuserdata/macbookpro.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS.xcodeproj/xcuserdata/macbookpro.xcuserdatad/xcschemes/xcschememanagement.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/AcceuilViewController.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/AppDelegate.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/AppIcon.appiconset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/Logo.imageset/Capture d’écran 2019-11-20 à 15.39.03.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/Logo.imageset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/airquality.imageset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/airquality.imageset/airquality.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/airquality.imageset/airquality@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/bca19684-d902-422d-8de2-f083e77b50ff_image2_GettyImages-677064730.imageset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/bca19684-d902-422d-8de2-f083e77b50ff_image2_GettyImages-677064730.imageset/bca19684-d902-422d-8de2-f083e77b50ff_image2_GettyImages-677064730.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/bike.imageset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/bike.imageset/bike.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/bike.imageset/bike@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/bus.imageset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/bus.imageset/bus.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/bus.imageset/bus@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/journey.imageset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/journey.imageset/journey.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/journey.imageset/journey@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/linestatus.imageset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/linestatus.imageset/linestatus.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/linestatus.imageset/linestatus@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/logoV1.0.imageset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/logoV1.0.imageset/logoV1.0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/tubelines.imageset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/tubelines.imageset/tubelines.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/tubelines.imageset/tubelines@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Base.lproj/LaunchScreen.storyboard" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Base.lproj/Main.storyboard" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/EventViewController.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Info.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/ProjetIOS.xcdatamodeld/.xccurrentversion" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/ProjetIOS.xcdatamodeld/ProjetIOS.xcdatamodel/contents" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/RegisterViewController.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/SceneDelegate.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/API/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/ProjetIOS.xcworkspace/xcuserdata/macbookpro.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS.xcworkspace/xcuserdata/macbookpro.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Base.lproj/Main.storyboard" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/LoginViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/LoginViewController.swift" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -119,6 +80,7 @@
       <workItem from="1574342547656" duration="2577000" />
       <workItem from="1574431872939" duration="159000" />
       <workItem from="1574517961971" duration="4039000" />
+      <workItem from="1574554212797" duration="420000" />
     </task>
     <servers />
   </component>
