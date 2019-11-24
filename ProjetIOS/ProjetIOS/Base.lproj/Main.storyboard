@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -47,7 +47,6 @@
                                 </state>
                                 <connections>
                                     <action selector="btn_login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jIR-du-lb0"/>
-                                    <segue destination="akD-0q-MwF" kind="show" id="YIC-tk-hQq"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="re1-Id-V4n">
@@ -77,11 +76,12 @@
                     <connections>
                         <outlet property="emailtf" destination="re1-Id-V4n" id="07O-tj-8Vz"/>
                         <outlet property="passwordtf" destination="aEi-CO-11U" id="MX7-pS-nqp"/>
+                        <segue destination="akD-0q-MwF" kind="show" identifier="goToHome" id="nyn-Ay-5eY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-499" y="125"/>
+            <point key="canvasLocation" x="267" y="-667"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="Iqq-Xj-mP1">
@@ -134,12 +134,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pD8-BP-WXd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="213" y="118"/>
+            <point key="canvasLocation" x="52" y="563"/>
         </scene>
         <!--Acceuil View Controller-->
         <scene sceneID="Ams-vF-9An">
             <objects>
-                <viewController id="akD-0q-MwF" customClass="AcceuilViewController" customModule="ProjetIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AcceuilViewController" id="akD-0q-MwF" customClass="AcceuilViewController" customModule="ProjetIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KwE-uO-4Gz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -153,7 +153,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="adR-mz-ZYv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="903" y="118"/>
+            <point key="canvasLocation" x="1435" y="-330"/>
         </scene>
         <!--Event View Controller-->
         <scene sceneID="0ht-88-dui">

@@ -101,27 +101,21 @@ app.post('/login/',(req,res,next)=>{
     var email = post_data.email;
 
     con.query('SELECT * FROM user where email=?',[email],function (err,result,fields) {
-        if (error) throw error;
-
         if (result && result.length)
-
-        {
-            var salt = result[0].salt;
-            var encrypted_password = result[0].encrypted_password;
-            var hashed_password = checkHashPassword(user_password, salt).passwordHash;
-        if (encrypted_password == hashed_password)
-            res.end(JSON.stringify(result[0]))
-        else
-            res.end(JSON.stringify('Wrong Password'))
-
-
-        }
-
+            {
+                var salt = result[0].salt;
+                var encrypted_password = result[0].encrypted_password;
+                var hashed_password = checkHashPassword(user_password, salt).passwordHash;
+                if (encrypted_password == hashed_password)
+                    res.end(JSON.stringify(result[0]))
+                else
+                    res.end(JSON.stringify('Wrong Password'));
+            }
         else {
 
                 res.json('user not exists!!');
 
-            }
+         }
 
     });
 

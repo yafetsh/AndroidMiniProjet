@@ -38,7 +38,7 @@ class LoginViewController: UIViewController {
  
 
 //        let serverUrl = "http://192.168.1.34:1337/login"
-        let serverUrl = "https://10.0.0.10:1337/login"
+        let serverUrl = "http://192.168.182.200:1337/login"
 
         guard let email = emailtf.text, !email.isEmpty else {return}
         guard let password = passwordtf.text, !password.isEmpty else {return}
@@ -49,10 +49,12 @@ class LoginViewController: UIViewController {
                    "password" : password
                ]
         Alamofire.request(serverUrl, method: .post, parameters: loginRequest, encoding: JSONEncoding.default, headers: nil).validate().responseJSON { (responseObject) -> Void in
-            print(responseObject)
             if responseObject.result.isSuccess {
                 let resJson = JSON(responseObject.result.value!)
                 print(resJson)
+                if (resJson != "Wrong Password") && (resJson != "user not exists!!") {
+                    self.performSegue(withIdentifier: "goToHome", sender: nil)
+                }
             }
             if responseObject.result.isFailure {
                 let error : Error = responseObject.result.error!
@@ -60,5 +62,12 @@ class LoginViewController: UIViewController {
             }
         }
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "goToHome"){
+            // pour passer des paramétres à votre prochaine uiview controller
+            let vc = segue.destination as! AcceuilViewController
+            
+            
+        }
+    }
 }
