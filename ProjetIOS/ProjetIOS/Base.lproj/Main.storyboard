@@ -35,7 +35,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="fzC-cm-UxS" kind="presentation" identifier="toRegister" id="WAD-6d-Vox"/>
+                                    <segue destination="fzC-cm-UxS" kind="show" identifier="toRegister" id="WAD-6d-Vox"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kOc-E9-aKQ">
@@ -76,7 +76,7 @@
                     <connections>
                         <outlet property="emailtf" destination="re1-Id-V4n" id="07O-tj-8Vz"/>
                         <outlet property="passwordtf" destination="aEi-CO-11U" id="MX7-pS-nqp"/>
-                        <segue destination="akD-0q-MwF" kind="show" identifier="goToHome" id="nyn-Ay-5eY"/>
+                        <segue destination="akD-0q-MwF" kind="presentation" identifier="goToHome" id="nyn-Ay-5eY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -88,7 +88,7 @@
             <objects>
                 <viewController id="fzC-cm-UxS" customClass="RegisterViewController" customModule="ProjetIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UTZ-A0-1Nf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DhE-hk-Wvg">
@@ -126,6 +126,7 @@
                         <color key="backgroundColor" red="0.053848475217819214" green="0.086689867079257965" blue="0.17271611094474792" alpha="0.9995117188" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="7ZN-oK-HL9"/>
                     </view>
+                    <navigationItem key="navigationItem" id="yad-c3-fxJ"/>
                     <connections>
                         <outlet property="emailtf" destination="DhE-hk-Wvg" id="WfJ-gT-B2d"/>
                         <outlet property="nametf" destination="SMi-I6-b3i" id="fHW-Hv-49A"/>
@@ -134,14 +135,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pD8-BP-WXd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="563"/>
+            <point key="canvasLocation" x="235" y="168"/>
         </scene>
         <!--Acceuil View Controller-->
         <scene sceneID="Ams-vF-9An">
             <objects>
                 <viewController storyboardIdentifier="AcceuilViewController" id="akD-0q-MwF" customClass="AcceuilViewController" customModule="ProjetIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KwE-uO-4Gz">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFU-dU-XZQ">
@@ -169,7 +170,7 @@
             <objects>
                 <viewController id="5hV-eP-rA8" customClass="EventViewController" customModule="ProjetIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PEA-jj-org">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="246" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gug-jg-znO">
@@ -228,7 +229,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jzo-Lf-uu7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="892.75362318840587" y="756.69642857142856"/>
+            <point key="canvasLocation" x="1177" y="413"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="O51-hH-Vsc">
@@ -237,7 +238,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="dvd-9j-e9A"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3L2-60-V25">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
