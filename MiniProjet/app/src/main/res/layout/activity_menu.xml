@@ -19,13 +19,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@drawable/gradient_bg"
+
         android:layout_weight="1"
         android:orientation="horizontal"
 
 >
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_weight="1"
             android:id="@+id/topBar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -66,15 +65,12 @@
                 app:layout_constraintEnd_toStartOf="@+id/menu"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@drawable/gradient_bg0"
             android:weightSum="5"
             android:layout_weight="1">
             <ImageView
@@ -89,19 +85,20 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:scaleType="center"
+                android:src="@drawable/catalog"/>
+            <ImageView
+                android:id="@+id/userProfile"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="center"
                 android:src="@drawable/profile"/>
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:scaleType="center"
-                android:src="@drawable/home"/>
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:scaleType="center"
-                android:src="@drawable/home"/>
+                android:src="@drawable/favoris"/>
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
