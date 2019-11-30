@@ -2,10 +2,58 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91051e8f-53c5-4e3e-8b7b-185e0a0e1525" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/backgroundmenu1.imageset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/backgroundmenu1.imageset/backgroundmenu1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/backlogin.imageset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/backlogin.imageset/backlogin.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/bg.imageset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/bg.imageset/bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/camping.imageset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/camping.imageset/camp.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/profile.imageset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/profile.imageset/vv.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/API/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MiniProjet/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/MiniProjet/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetIOS/Podfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetIOS/Podfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/Pods/Manifest.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetIOS/Pods/Manifest.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/Pods/PGMenu/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/Pods/PGMenu/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/Pods/PGMenu/Source/CircleButton.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/Pods/PGMenu/Source/Configuration.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/Pods/PGMenu/Source/Gradient.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/Pods/PGMenu/Source/MenuItem.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/Pods/PGMenu/Source/StackMenu.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/Pods/Pods.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetIOS/Pods/Pods.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/Pods/Pods.xcodeproj/xcuserdata/macbookpro.xcuserdatad/xcschemes/PGMenu.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/Pods/Pods.xcodeproj/xcuserdata/macbookpro.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetIOS/Pods/Pods.xcodeproj/xcuserdata/macbookpro.xcuserdatad/xcschemes/xcschememanagement.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/Pods/Target Support Files/PGMenu/PGMenu-Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/Pods/Target Support Files/PGMenu/PGMenu-dummy.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/Pods/Target Support Files/PGMenu/PGMenu-prefix.pch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/Pods/Target Support Files/PGMenu/PGMenu-umbrella.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/Pods/Target Support Files/PGMenu/PGMenu.modulemap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/Pods/Target Support Files/PGMenu/PGMenu.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/Pods/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS-acknowledgements.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetIOS/Pods/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS-acknowledgements.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/Pods/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS-acknowledgements.plist" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetIOS/Pods/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS-acknowledgements.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/Pods/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS-frameworks-Debug-input-files.xcfilelist" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetIOS/Pods/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS-frameworks-Debug-input-files.xcfilelist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/Pods/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS-frameworks-Debug-output-files.xcfilelist" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetIOS/Pods/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS-frameworks-Debug-output-files.xcfilelist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/Pods/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS-frameworks-Release-input-files.xcfilelist" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetIOS/Pods/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS-frameworks-Release-input-files.xcfilelist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/Pods/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS-frameworks-Release-output-files.xcfilelist" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetIOS/Pods/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS-frameworks-Release-output-files.xcfilelist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/Pods/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS-frameworks.sh" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetIOS/Pods/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS-frameworks.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/Pods/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS.debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetIOS/Pods/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS.debug.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/Pods/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS.release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetIOS/Pods/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS.release.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/ProjetIOS.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/ProjetIOS.xcodeproj/xcuserdata/macbookpro.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS.xcodeproj/xcuserdata/macbookpro.xcuserdatad/xcschemes/xcschememanagement.plist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjetIOS/ProjetIOS.xcworkspace/xcuserdata/macbookpro.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS.xcworkspace/xcuserdata/macbookpro.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/ProjetIOS.xcworkspace/xcuserdata/macbookpro.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/AcceuilViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/AcceuilViewController.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Base.lproj/Main.storyboard" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Library/CircleButton.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Library/Configuration.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Library/Gradient.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Library/MenuItem.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Library/StackMenu.swift" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/LoginViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/LoginViewController.swift" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -83,6 +131,10 @@
       <workItem from="1574517961971" duration="4039000" />
       <workItem from="1574554212797" duration="420000" />
       <workItem from="1574605163794" duration="860000" />
+      <workItem from="1574606261281" duration="587000" />
+      <workItem from="1574710690909" duration="1224000" />
+      <workItem from="1575124350329" duration="49000" />
+      <workItem from="1575124409714" duration="456000" />
     </task>
     <servers />
   </component>

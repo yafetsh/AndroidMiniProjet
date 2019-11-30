@@ -30,6 +30,7 @@ var con = mysql.createConnection({
 });*/
 
 
+
 con.connect((err)=> {
     if(!err)
         console.log('Connection Established Successfully');
@@ -133,6 +134,33 @@ app.post('/login/',(req,res,next)=>{
 
 
 })
+/* UPDATE PROFILE */
+app.put('/user/edit/:id', (req, res) => {
+
+    const id = req.params.id;
+    con.query('UPDATE user SET ? WHERE id = ?', [req.body, id], (error, result) => {
+        if (error) throw error;
+
+        res.send('Porifle modifié avec succés');
+    });
+});
+
+/* SHOW PROFILE DETAILS */
+app.get('/user/show/:id', (req, res) => {
+    var post_data = req.body;  //Get POST params
+
+    const id = req.params.id;
+
+
+    con.query('SELECT * FROM `user` WHERE id =?' ,[id],  (error, result) => {
+        if (error) throw error;
+
+        res.send(result);
+        console.log(result);
+    });
+
+});
+
 
 
 /* SHOW EVENT */
@@ -213,13 +241,6 @@ app.put('/evenement/edit/:id', (req, res) => {
 
 
 
-/*app.get("/",(req,res,next) =>{
-    console.log('Password: 123456');
-    var encrypt = saltHashPassword("123456");
-    console.log('Encrypt: '+encrypt.passwordHash);
-    console.log('Salt: '+ encrypt.salt);
-
-})*/
 
 //Start Server
 app.listen(1337,()=>{

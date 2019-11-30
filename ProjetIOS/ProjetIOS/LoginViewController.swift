@@ -23,23 +23,10 @@ class LoginViewController: UIViewController {
     }
     
 
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     @IBAction func btn_login(_ sender: Any) {
- 
-        var arr_event_id = [String]()
-
-//        let serverUrl = "http://192.168.1.34:1337/login"
+         
         let serverUrl = "http://localhost:1337/login"
 
         guard let email = emailtf.text, !email.isEmpty else {return}
@@ -55,15 +42,20 @@ class LoginViewController: UIViewController {
             if responseObject.result.isSuccess {
                 let resJson = JSON(responseObject.result.value!)
                 print(resJson)
-                print(resJson["name"])
                 if (resJson != "Vérifiez votre mot de passe") && (resJson != "Utilisateur introuvable") {
+//                    let jsonData = resJson as! NSDictionary
+//                      UserDefaults.standard.value(fo)
+//                    let connectedUserId = resJson["id"]
+//print(connectedUserId)
+//                    let name = UserDefaults.standard.set(connectedUserId, forKey: "id")
+//                    print(name)
                     self.performSegue(withIdentifier: "goToHome", sender: nil)
+                    
                 }
                 if (resJson == "Vérifiez votre mot de passe") {
                     let myalert = UIAlertController(title: " CAMP WITH US", message: "Vérifiez votre mot de passe", preferredStyle: UIAlertController.Style.alert)
 
 myalert.addAction(UIAlertAction(title: "Réessayez", style: .default) { (action:UIAlertAction!) in
-                                        print("retry")
                                                                     })
                                                                     self.present(myalert, animated: true)
                 }
@@ -88,9 +80,14 @@ myalert.addAction(UIAlertAction(title: "Réessayez", style: .default) { (action:
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "goToHome"){
+            
+    
             // pour passer des paramétres à votre prochaine uiview controller
+            
             let vc = segue.destination as! AcceuilViewController
-//            print(resJson["name"])
+            vc.usr = emailtf.text!
+
+
 
             
             

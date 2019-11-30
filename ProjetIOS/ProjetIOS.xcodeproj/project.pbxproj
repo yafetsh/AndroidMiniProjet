@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5249C51423862B4900526347 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5249C50F23862B4900526347 /* CircleButton.swift */; };
-		5249C51523862B4900526347 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5249C51023862B4900526347 /* Gradient.swift */; };
-		5249C51623862B4900526347 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5249C51123862B4900526347 /* MenuItem.swift */; };
-		5249C51723862B4900526347 /* StackMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5249C51223862B4900526347 /* StackMenu.swift */; };
-		5249C51823862B4900526347 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5249C51323862B4900526347 /* Configuration.swift */; };
 		5249C51A23862EDC00526347 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5249C51923862EDC00526347 /* EventViewController.swift */; };
 		52A165E923861E6D00FFF013 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A165E823861E6D00FFF013 /* AppDelegate.swift */; };
 		52A165EB23861E6D00FFF013 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A165EA23861E6D00FFF013 /* SceneDelegate.swift */; };
@@ -22,15 +17,16 @@
 		52A165F823861E6F00FFF013 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52A165F623861E6F00FFF013 /* LaunchScreen.storyboard */; };
 		52A166002386201F00FFF013 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A165FF2386201F00FFF013 /* LoginViewController.swift */; };
 		52A166022386203000FFF013 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A166012386203000FFF013 /* RegisterViewController.swift */; };
-		D2016173D2B588B586292BDA /* Pods_ProjetIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB34EDD5F793B597F83E431 /* Pods_ProjetIOS.framework */; };
+		52FAA2D8238AE77400540E27 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FAA2D3238AE77400540E27 /* CircleButton.swift */; };
+		52FAA2D9238AE77400540E27 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FAA2D4238AE77400540E27 /* Gradient.swift */; };
+		52FAA2DA238AE77400540E27 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FAA2D5238AE77400540E27 /* MenuItem.swift */; };
+		52FAA2DB238AE77400540E27 /* StackMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FAA2D6238AE77400540E27 /* StackMenu.swift */; };
+		52FAA2DC238AE77400540E27 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FAA2D7238AE77400540E27 /* Configuration.swift */; };
+		EFCA059AB03378F9A017DF74 /* Pods_ProjetIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7704B015503F69003B1E27C3 /* Pods_ProjetIOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5249C50F23862B4900526347 /* CircleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
-		5249C51023862B4900526347 /* Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
-		5249C51123862B4900526347 /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
-		5249C51223862B4900526347 /* StackMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackMenu.swift; sourceTree = "<group>"; };
-		5249C51323862B4900526347 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		33C2669D17D09E3F198C851C /* Pods-ProjetIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjetIOS.release.xcconfig"; path = "Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS.release.xcconfig"; sourceTree = "<group>"; };
 		5249C51923862EDC00526347 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		52A165E523861E6D00FFF013 /* ProjetIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjetIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52A165E823861E6D00FFF013 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,9 +39,13 @@
 		52A165F923861E6F00FFF013 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52A165FF2386201F00FFF013 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ProjetIOS/LoginViewController.swift; sourceTree = SOURCE_ROOT; };
 		52A166012386203000FFF013 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		D02760D566F9CB77CC4EB6BB /* Pods-ProjetIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjetIOS.release.xcconfig"; path = "Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS.release.xcconfig"; sourceTree = "<group>"; };
-		DC301F9DE35491412B2E06D8 /* Pods-ProjetIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjetIOS.debug.xcconfig"; path = "Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS.debug.xcconfig"; sourceTree = "<group>"; };
-		FBB34EDD5F793B597F83E431 /* Pods_ProjetIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjetIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		52FAA2D3238AE77400540E27 /* CircleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
+		52FAA2D4238AE77400540E27 /* Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
+		52FAA2D5238AE77400540E27 /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		52FAA2D6238AE77400540E27 /* StackMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackMenu.swift; sourceTree = "<group>"; };
+		52FAA2D7238AE77400540E27 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		7704B015503F69003B1E27C3 /* Pods_ProjetIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjetIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF98323F9AD6A3D83196E565 /* Pods-ProjetIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjetIOS.debug.xcconfig"; path = "Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,32 +53,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2016173D2B588B586292BDA /* Pods_ProjetIOS.framework in Frameworks */,
+				EFCA059AB03378F9A017DF74 /* Pods_ProjetIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5249C50E23862B4900526347 /* Library */ = {
-			isa = PBXGroup;
-			children = (
-				5249C50F23862B4900526347 /* CircleButton.swift */,
-				5249C51023862B4900526347 /* Gradient.swift */,
-				5249C51123862B4900526347 /* MenuItem.swift */,
-				5249C51223862B4900526347 /* StackMenu.swift */,
-				5249C51323862B4900526347 /* Configuration.swift */,
-			);
-			path = Library;
-			sourceTree = "<group>";
-		};
 		52A165DC23861E6D00FFF013 = {
 			isa = PBXGroup;
 			children = (
 				52A165E723861E6D00FFF013 /* ProjetIOS */,
 				52A165E623861E6D00FFF013 /* Products */,
 				BFD512C8601B6DFB18EFD2F1 /* Pods */,
-				E99CC58509570B1F7AD43074 /* Frameworks */,
+				DD7FCB2EFF7B22C5C861A0D4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -93,7 +81,7 @@
 		52A165E723861E6D00FFF013 /* ProjetIOS */ = {
 			isa = PBXGroup;
 			children = (
-				5249C50E23862B4900526347 /* Library */,
+				52FAA2D2238AE77400540E27 /* Library */,
 				52A165E823861E6D00FFF013 /* AppDelegate.swift */,
 				52A165EA23861E6D00FFF013 /* SceneDelegate.swift */,
 				52A165EC23861E6D00FFF013 /* AcceuilViewController.swift */,
@@ -109,19 +97,32 @@
 			path = ProjetIOS;
 			sourceTree = "<group>";
 		};
+		52FAA2D2238AE77400540E27 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				52FAA2D3238AE77400540E27 /* CircleButton.swift */,
+				52FAA2D4238AE77400540E27 /* Gradient.swift */,
+				52FAA2D5238AE77400540E27 /* MenuItem.swift */,
+				52FAA2D6238AE77400540E27 /* StackMenu.swift */,
+				52FAA2D7238AE77400540E27 /* Configuration.swift */,
+			);
+			name = Library;
+			path = "../../../../../../Downloads/PGMenu-master/PGSMenu/PGSMenu/Library";
+			sourceTree = "<group>";
+		};
 		BFD512C8601B6DFB18EFD2F1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				DC301F9DE35491412B2E06D8 /* Pods-ProjetIOS.debug.xcconfig */,
-				D02760D566F9CB77CC4EB6BB /* Pods-ProjetIOS.release.xcconfig */,
+				AF98323F9AD6A3D83196E565 /* Pods-ProjetIOS.debug.xcconfig */,
+				33C2669D17D09E3F198C851C /* Pods-ProjetIOS.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		E99CC58509570B1F7AD43074 /* Frameworks */ = {
+		DD7FCB2EFF7B22C5C861A0D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FBB34EDD5F793B597F83E431 /* Pods_ProjetIOS.framework */,
+				7704B015503F69003B1E27C3 /* Pods_ProjetIOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -133,11 +134,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52A165FC23861E6F00FFF013 /* Build configuration list for PBXNativeTarget "ProjetIOS" */;
 			buildPhases = (
-				795DE4202FDD75643D625B5D /* [CP] Check Pods Manifest.lock */,
+				BE1FF750796751A5C040DB55 /* [CP] Check Pods Manifest.lock */,
 				52A165E123861E6D00FFF013 /* Sources */,
 				52A165E223861E6D00FFF013 /* Frameworks */,
 				52A165E323861E6D00FFF013 /* Resources */,
-				9DA252CFAE7BB03158D359AE /* [CP] Embed Pods Frameworks */,
+				98CF9BB1DA983B5D23EB58F1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -195,7 +196,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		795DE4202FDD75643D625B5D /* [CP] Check Pods Manifest.lock */ = {
+		98CF9BB1DA983B5D23EB58F1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BE1FF750796751A5C040DB55 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -217,23 +235,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9DA252CFAE7BB03158D359AE /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -241,18 +242,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5249C51423862B4900526347 /* CircleButton.swift in Sources */,
 				52A165ED23861E6D00FFF013 /* AcceuilViewController.swift in Sources */,
 				52A165F323861E6D00FFF013 /* ProjetIOS.xcdatamodeld in Sources */,
 				52A165E923861E6D00FFF013 /* AppDelegate.swift in Sources */,
+				52FAA2D8238AE77400540E27 /* CircleButton.swift in Sources */,
 				52A166022386203000FFF013 /* RegisterViewController.swift in Sources */,
 				5249C51A23862EDC00526347 /* EventViewController.swift in Sources */,
+				52FAA2DC238AE77400540E27 /* Configuration.swift in Sources */,
+				52FAA2DB238AE77400540E27 /* StackMenu.swift in Sources */,
 				52A166002386201F00FFF013 /* LoginViewController.swift in Sources */,
-				5249C51623862B4900526347 /* MenuItem.swift in Sources */,
 				52A165EB23861E6D00FFF013 /* SceneDelegate.swift in Sources */,
-				5249C51523862B4900526347 /* Gradient.swift in Sources */,
-				5249C51723862B4900526347 /* StackMenu.swift in Sources */,
-				5249C51823862B4900526347 /* Configuration.swift in Sources */,
+				52FAA2D9238AE77400540E27 /* Gradient.swift in Sources */,
+				52FAA2DA238AE77400540E27 /* MenuItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,7 +395,7 @@
 		};
 		52A165FD23861E6F00FFF013 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC301F9DE35491412B2E06D8 /* Pods-ProjetIOS.debug.xcconfig */;
+			baseConfigurationReference = AF98323F9AD6A3D83196E565 /* Pods-ProjetIOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -413,7 +414,7 @@
 		};
 		52A165FE23861E6F00FFF013 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D02760D566F9CB77CC4EB6BB /* Pods-ProjetIOS.release.xcconfig */;
+			baseConfigurationReference = 33C2669D17D09E3F198C851C /* Pods-ProjetIOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

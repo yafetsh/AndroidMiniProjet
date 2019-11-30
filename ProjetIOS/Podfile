@@ -6,7 +6,6 @@ target 'ProjetIOS' do
   use_frameworks!
 
   # Pods for ProjetIOS
-  pod 'PGMenu'
   pod 'Alamofire'
   pod 'SwiftyJSON'
 

@@ -1,6 +1,0 @@
-framework module PGMenu {
-  umbrella header "PGMenu-umbrella.h"
-
-  export *
-  module * { export * }
-}
