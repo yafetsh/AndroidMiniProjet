@@ -74,7 +74,7 @@ public class RegisterActivity extends AppCompatActivity {
                 if (cp.equals(p)){
 
                 registerUser(email.getText().toString(),name.getText().toString(),prenom.getText().toString(),tel.getText().toString(),p);
-                    Intent i = new Intent(RegisterActivity.this, MainActivity.class);
+                    Intent i = new Intent(RegisterActivity.this, MenuActivity.class);
                     startActivity(i);
             }else  Toast.makeText(RegisterActivity.this, "Confirmer mot de passe",Toast.LENGTH_SHORT).show();}
 

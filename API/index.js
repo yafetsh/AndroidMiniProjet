@@ -9,7 +9,7 @@ var mysql = require('mysql');
 var bodyParser = require('body-parser');
 //cmnt
 //Connect to MySQL
-var con = mysql.createConnection({
+/*var con = mysql.createConnection({
     host:'127.0.0.1',
     port: '8889',
     user: 'root',
@@ -17,17 +17,17 @@ var con = mysql.createConnection({
     connector: 'mysql',
     database: 'miniprojet',
     socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock'
-});
+});*/
 
 //Connect to MySQL
-/*var con = mysql.createConnection({
+var con = mysql.createConnection({
     host:'127.0.0.1',
     port: '3306',
     user: 'root',
     password: '',
     connector: 'mysql',
     database: 'miniprojet',
-});*/
+});
 
 
 

@@ -1,6 +1,9 @@
 package com.example.miniprojetandroid.Controllers;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -8,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -25,13 +29,17 @@ public class MenuActivity extends AppCompatActivity {
 
     ImageButton menu ;
     ResideMenu resideMenu;
-    ImageView acceuil1;
+    ImageView acceuil1,profileuser;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
+
+
+// affichage pub event et action menu
         RecyclerView recyclerView = findViewById(R.id.publications);
         List<CampEvent> mlist = new ArrayList<>();
         mlist.add(new CampEvent(R.drawable.images,"haythem boudokhane",R.drawable.images));
@@ -41,8 +49,10 @@ public class MenuActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-
+        profileuser = findViewById(R.id.userProfile);
         acceuil1 = findViewById(R.id.acceuil1);
+
+
         acceuil1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,22 +61,24 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
+        profileuser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragg = new Profile();
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.details, fragg);
+                fragmentTransaction.commit();
+
+            }
+        });
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-        menu = (ImageButton) findViewById(R.id.menu);
+        menu = findViewById(R.id.menu);
         setMenu();
 
 
@@ -82,66 +94,56 @@ public class MenuActivity extends AppCompatActivity {
     public void setMenu() {
         // attach to current activity;
         resideMenu = new ResideMenu(this);
-        resideMenu.setBackground(R.drawable.gradient_bg);
+        resideMenu.setBackground(R.color.mapboxBlue);
+
 
         resideMenu.setShadowVisible(true);
         resideMenu.attachToActivity(this);
 
         // create menu items;
 
-        String titles[] = {"Profil", "Add camp", "Logout"};
-        int icon[] = {R.drawable.profile, R.drawable.profile, R.drawable.logout};
+        String titles[] = {"Profil", "Add camp","Add materiel", "Logout"};
+        int icon[] = {R.drawable.profile, R.drawable.add, R.drawable.add, R.drawable.logout};
 
         for (int i = 0; i < titles.length; i++) {
             ResideMenuItem item = new ResideMenuItem(this, icon[i], titles[i]);
-            if (titles[i] == "Profil") {
+            if (titles[i].equals("Profil") ) {
                 item.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-/*                        Fragment fragg = new Haythem();
+                        Fragment fragg = new Profile();
                         FragmentManager fragmentManager = getSupportFragmentManager();
                         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                        fragmentTransaction.replace(R.id.container, fragg);
-                        fragmentTransaction.commit();*/
+                        fragmentTransaction.replace(R.id.details, fragg);
+                        fragmentTransaction.commit();
+                        resideMenu.closeMenu();
                     }
                 });
-            }/* else if (titles[i] == "Add camp") {
-                    CampEvent.setOnClickListener(new View.OnClickListener() {
+            } else if (titles[i].equals("Add camp") ) {
+                    item.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
 
-                            MapSearchDialog dialog = new MapSearchDialog();
-                            dialog.show(getSupportFragmentManager(), "map");
 
 
                         }
                     });
-                } else if (titles[i] == "Logout") {
-                    CampEvent.setOnClickListener(new View.OnClickListener() {
+                } else if (titles[i].equals("Add materiel") ) {
+                    item.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            signOut();
-                            // SharedPreferences loginsharedPref = getSharedPreferences(getString(R.string.app_name), Context.MODE_PRIVATE);
-                            File sharedPreferenceFile = new File("/data/data/" + getPackageName() + "/shared_prefs/");
-                            File[] listFiles = sharedPreferenceFile.listFiles();
-                            for (File file : listFiles) {
-                                file.delete();
-                            }
-                            finish();
-                            Intent intent = new Intent(DiscoverActivity.this, LoginActivity.class);
-                            startActivity(intent);
+
                         }
                     });
 
-                }*/
+                }
 
 
             resideMenu.addMenuItem(item, ResideMenu.DIRECTION_LEFT); // or  ResideMenu.DIRECTION_RIGHT
         }
 
 
-        resideMenu.setSwipeDirectionDisable(ResideMenu.DIRECTION_RIGHT);
-        resideMenu.setSwipeDirectionDisable(ResideMenu.DIRECTION_LEFT);
+
 
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -152,8 +154,7 @@ public class MenuActivity extends AppCompatActivity {
 
 
 
-        resideMenu.openMenu(ResideMenu.DIRECTION_LEFT); // or ResideMenu.DIRECTION_RIGHT
-        resideMenu.closeMenu();
+
 
 
         ResideMenu.OnMenuListener menuListener = new ResideMenu.OnMenuListener() {
