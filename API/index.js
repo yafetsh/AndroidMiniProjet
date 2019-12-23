@@ -361,30 +361,40 @@ app.post('/participant/add',(req,res,next)=>{
 });
 });
 
-/* UPDATE EVENT nbr place
-app.put('/participate/:id', (req, res) => {
+/* CANCEL PARTICIPATION */
+app.delete('/participant/delete',(req,res,next)=>{
+    var post_data = req.body;  //Get POST params
+
+    var id_user = post_data.id_user;
+    var id_evenement = post_data.id_evenement;
+        con.query('DELETE FROM `participants` WHERE id_user=? and id_evenement=?', [id_user, id_evenement], function (err, result, fields) {
+                if (err) throw err;
+
+                res.json('participation annulé avec succés');
+
+            });
 
 
-    const id = req.params.id;
-    con.query('SELECT nbr_place FROM evenement where  id_evenement=?',[id],function (err,result,fields) {
-        if (err) throw err;
 
-
-        if (result && result.length > 0) {
-            if (result[0].nbr_place > 0) {
-                //there are places
-                con.query('UPDATE evenement SET nbr_place = nbr_place - 1 WHERE id_evenement = ?', [id], (error, result) => {
-                    if (error) throw error;
-
-                    res.send('decremented successfully');
-                });
-            } else {
-                res.json('no more places');
-            }
-        }
     });
-});*/
 
+
+
+/* Increment nbr place*/
+app.put('/annuler/:id', (req, res) => {
+    const id = req.params.id;
+    con.query(
+        'UPDATE evenement SET nbr_place = nbr_place + 1 WHERE id_evenement = ? ',
+        [id],
+        function (err,result,fields) {
+            if (err) throw err;
+
+                res.json('incremented successfully');
+
+        }
+    );
+});
+/* Decrement nbr place*/
 app.put('/participate/:id', (req, res) => {
     const id = req.params.id;
     con.query(
@@ -393,7 +403,7 @@ app.put('/participate/:id', (req, res) => {
         function (err,result,fields) {
             if (err) throw err;
             if (result.affectedRows > 0) {
-                res.send('decremented successfully');
+                res.json('decremented successfully');
             } else {
                 res.json('no more places');
             }
@@ -435,12 +445,6 @@ app.get('/myarticles/:id', (req, res) => {
     }))
 
 });
-
-
-
-
-
-
 
 //Start Server
 app.listen(1337,()=>{

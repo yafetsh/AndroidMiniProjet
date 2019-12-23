@@ -21,8 +21,11 @@ class FavoriteEventsViewController: UIViewController, UITableViewDataSource , UI
         super.viewDidLoad()
         favorisEventTableView.dataSource = self
         favorisEventTableView.delegate = self
-        loadFavoris()
         // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(_ animated: Bool) {
+                loadFavoris()
+
     }
     
     

@@ -18,6 +18,10 @@ class EventDetailsViewController: UIViewController {
     @IBOutlet weak var imageEvent: UIImageView!
     @IBOutlet weak var favoris_btn: UIButton!
     @IBOutlet weak var nom: UILabel!
+    
+    @IBOutlet weak var btn_participate: UIButton!
+    
+    
     var idEvent:String?
     
     @IBOutlet weak var participatebtn: UIButton!
@@ -134,7 +138,13 @@ class EventDetailsViewController: UIViewController {
     
     @IBAction func btn_participate(_ sender: Any) {
         
+        print("participate clicked")
+        //        btn_participate.setTitle("Annuler participation", for: .normal)
+        
+        
         let serverUrl = "http://localhost:1337/participant/add"
+        let serverUrl2 = "http://localhost:1337/participant/delete"
+        
         let eventId =  defaults.integer(forKey: "event_id")
         let userId =  defaults.integer(forKey: "user_id")
         
@@ -144,74 +154,106 @@ class EventDetailsViewController: UIViewController {
             
         ]
         
+        
         print(addParticipantRequest)
         
         let url = "http://localhost:1337/participate/\(eventId)"
+        let url2 = "http://localhost:1337/annuler/\(eventId)"
         
         
-        Alamofire.request(url, method: .put,encoding: JSONEncoding.default, headers: nil).responseJSON { (responseObject) -> Void in
-            if responseObject.result.isSuccess {
-                let resJson = JSON(responseObject.result.value!)
-                print(resJson)
-                
-                
-                Alamofire.request(serverUrl, method: .post, parameters: addParticipantRequest, encoding: JSONEncoding.default, headers: nil).responseJSON { (responseObject) -> Void in
-                    if responseObject.result.isSuccess {
-                        let resJson1 = JSON(responseObject.result.value!)
-                        print(resJson1)
-                        if (resJson == "decremented successfully" && resJson1 == "Participant ajouté avec succés"  )
-                        {
-                            let myalert = UIAlertController(title: " CAMP WITH US", message: "votre participation est ajouté avec succés", preferredStyle: UIAlertController.Style.alert)
-                            myalert.addAction(UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
-                            })
-                            self.present(myalert, animated: true)
+        if (btn_participate.currentTitle == "Participer")
+        {
+            Alamofire.request(url, method: .put,encoding: JSONEncoding.default, headers: nil).responseJSON { (responseObject) -> Void in
+                if responseObject.result.isSuccess {
+                    let resJson = JSON(responseObject.result.value!)
+                    print(resJson)
+                    
+                    
+                    Alamofire.request(serverUrl, method: .post, parameters: addParticipantRequest, encoding: JSONEncoding.default, headers: nil).responseJSON { (responseObject) -> Void in
+                        if responseObject.result.isSuccess {
+                            let resJson1 = JSON(responseObject.result.value!)
+                            print(resJson1)
+                            if (resJson == "decremented successfully" && resJson1 == "Participant ajouté avec succés"  )
+                            {
+                                self.btn_participate.setTitle("Annuler", for: .normal)
+                                self.btn_participate.backgroundColor = .red
+                                
+                            }
+                            else if (resJson == "no more places" && resJson1 == "Participant ajouté avec succés")
+                            {
+                                let myalert = UIAlertController(title: " CAMP WITH US", message: "no more places", preferredStyle: UIAlertController.Style.alert)
+                                myalert.addAction(UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+                                })
+                                self.present(myalert, animated: true)
+                                
+                            }
+                            else if (resJson == "decremented successfully" && resJson1 == "participated already")
+                            {
+                                let myalert = UIAlertController(title: " CAMP WITH US", message: "Déjà participé", preferredStyle: UIAlertController.Style.alert)
+                                myalert.addAction(UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+                                })
+                                self.present(myalert, animated: true)
+                                self.participatebtn.isEnabled = false
+                                self.participatebtn.isSelected = false
+                                self.participatebtn.isOpaque = true
+                            }
+                            else if (resJson == "no more places" && resJson1 == "participated already")
+                            {
+                                let myalert = UIAlertController(title: " CAMP WITH US", message: "Déjà participé et no more places", preferredStyle: UIAlertController.Style.alert)
+                                myalert.addAction(UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+                                })
+                                self.present(myalert, animated: true)
+                            }
                         }
-                        else if (resJson == "no more places" && resJson1 == "Participant ajouté avec succés")
-                        {
-                            let myalert = UIAlertController(title: " CAMP WITH US", message: "no more places", preferredStyle: UIAlertController.Style.alert)
-                            myalert.addAction(UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
-                            })
-                            self.present(myalert, animated: true)
-                            
+                        if responseObject.result.isFailure {
+                            let error : Error = responseObject.result.error!
+                            print(error)
                         }
-                        else if (resJson == "decremented successfully" && resJson1 == "participated already")
-                        {
-                            let myalert = UIAlertController(title: " CAMP WITH US", message: "Déjà participé", preferredStyle: UIAlertController.Style.alert)
-                            myalert.addAction(UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
-                            })
-                            self.present(myalert, animated: true)
-                            self.participatebtn.isEnabled = false
-                            self.participatebtn.isSelected = false
-                            self.participatebtn.isOpaque = true
-                        }
-                        else if (resJson == "no more places" && resJson1 == "participated already")
-                        {
-                            let myalert = UIAlertController(title: " CAMP WITH US", message: "Déjà participé et no more places", preferredStyle: UIAlertController.Style.alert)
-                            myalert.addAction(UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
-                            })
-                            self.present(myalert, animated: true)
-                        }
-                        
-                        
-                        
                     }
-                    if responseObject.result.isFailure {
-                        let error : Error = responseObject.result.error!
-                        print(error)
-                    }
+                    
                     
                     
                 }
-                
+                if responseObject.result.isFailure {
+                    let error : Error = responseObject.result.error!
+                    print(error)
+                }
                 
                 
             }
-            if responseObject.result.isFailure {
-                let error : Error = responseObject.result.error!
-                print(error)
+        }
+        else {
+            
+            Alamofire.request(serverUrl2, method: .delete, parameters: addParticipantRequest, encoding: JSONEncoding.default, headers: nil).responseJSON { (responseObject) -> Void in
+                      if responseObject.result.isSuccess {
+                          let resJson1 = JSON(responseObject.result.value!)
+                          print(resJson1)
+                          self.btn_participate.setTitle("Participer", for: .normal)
+                        self.btn_participate.backgroundColor = .green
+
+                          
+                      }
+                      if responseObject.result.isFailure {
+                          let error : Error = responseObject.result.error!
+                          print(error)
+                      }
+                      
+                      
+                  }
+            
+            Alamofire.request(url2, method: .put,encoding: JSONEncoding.default, headers: nil).responseJSON { (responseObject) -> Void in
+                if responseObject.result.isSuccess {
+                    let resJson = JSON(responseObject.result.value!)
+                    print(resJson)
+                    
+                }
+                if responseObject.result.isFailure {
+                    let error : Error = responseObject.result.error!
+                    print(error)
+                }
+                
+                
             }
-            
-            
         }
         
         
@@ -228,7 +270,7 @@ class EventDetailsViewController: UIViewController {
             {
                 favoris_btn.setImage(UIImage(systemName: "star"), for: .normal)
                 deleteFavoris(eventId: id)
-
+                
             }
             else {
                 favoris_btn.setImage(UIImage(systemName: "star.fill"), for: .normal)
@@ -236,7 +278,7 @@ class EventDetailsViewController: UIViewController {
             }
             
         }
-  
+        
     }
     
     

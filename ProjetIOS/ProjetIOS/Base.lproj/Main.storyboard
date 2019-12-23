@@ -682,9 +682,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pXm-4q-lQD">
-                                <rect key="frame" x="9" y="360" width="140" height="34"/>
+                                <rect key="frame" x="12" y="360" width="134" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Afficher Détails &gt;">
+                                <state key="normal" title="Cacher Détails &gt;">
                                     <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -694,7 +694,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LkM-qF-CGf">
                                 <rect key="frame" x="34" y="252" width="130" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Participer">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -724,6 +724,7 @@
                     </view>
                     <connections>
                         <outlet property="btn_details" destination="pXm-4q-lQD" id="wup-B9-Dpc"/>
+                        <outlet property="btn_participate" destination="LkM-qF-CGf" id="veu-aP-7UC"/>
                         <outlet property="containerView" destination="kSl-Ay-u4n" id="Sqd-ZO-ka7"/>
                         <outlet property="favoris_btn" destination="ZQ6-YG-1iI" id="yQn-OU-Uef"/>
                         <outlet property="imageEvent" destination="Ooc-vb-yKj" id="01X-2M-PuD"/>
