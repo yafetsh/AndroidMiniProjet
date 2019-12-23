@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.miniprojetandroid.MainActivity;
 import com.example.miniprojetandroid.R;
 import com.example.miniprojetandroid.Retrofit.INodeJS;
 import com.example.miniprojetandroid.Retrofit.RetrofitClient;
@@ -19,6 +18,8 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import retrofit2.Retrofit;
+import com.facebook.accountkit.AccountKit;
+import com.facebook.accountkit.AccessToken;
 
 public class LoginActivity extends AppCompatActivity {
     INodeJS myAPI;
@@ -26,6 +27,9 @@ public class LoginActivity extends AppCompatActivity {
 
     MaterialEditText email,password;
     MaterialButton btn_register,btn_login;
+    AccessToken accessToken = AccountKit.getCurrentAccessToken();
+
+
 
     @Override
     protected void onStop() {
@@ -87,7 +91,12 @@ public class LoginActivity extends AppCompatActivity {
                         if (s.contains("encrypted_password")){
                             Toast.makeText(LoginActivity.this,"Login Successfully",Toast.LENGTH_SHORT).show();
                         Intent i = new Intent(LoginActivity.this, MenuActivity.class);
-                        startActivity(i);}
+                        startActivity(i);
+
+                        }
+
+
+
                         else
                             Toast.makeText(LoginActivity.this,""+s,Toast.LENGTH_SHORT).show(); //Show error from API
 

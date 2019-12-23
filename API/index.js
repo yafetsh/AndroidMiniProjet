@@ -7,9 +7,17 @@ var uuid = require ('uuid');
 var express = require('express');
 var mysql = require('mysql');
 var bodyParser = require('body-parser');
+var multer, storage, path, crypto;
+multer = require('multer')
+path = require('path');
+var form = "<!DOCTYPE HTML><html><body>" +
+    "<form method='post' action='/upload' enctype='multipart/form-data'>" +
+    "<input type='file' name='upload'/>" +
+    "<input type='submit' /></form>" +
+    "</body></html>";
 //cmnt
 //Connect to MySQL
-/*var con = mysql.createConnection({
+var con = mysql.createConnection({
     host:'127.0.0.1',
     port: '8889',
     user: 'root',
@@ -17,17 +25,17 @@ var bodyParser = require('body-parser');
     connector: 'mysql',
     database: 'miniprojet',
     socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock'
-});*/
+});
 
 //Connect to MySQL
-var con = mysql.createConnection({
+/*var con = mysql.createConnection({
     host:'127.0.0.1',
     port: '3306',
     user: 'root',
     password: '',
     connector: 'mysql',
     database: 'miniprojet',
-});
+});*/
 
 
 
@@ -72,6 +80,48 @@ var app = express();
 app.use(bodyParser.json()); // Accept JSON params
 app.use(bodyParser.urlencoded({extended:true})); //Accept UrlEncoded params
 
+app.get('/', function (req, res){
+    res.writeHead(200, {'Content-Type': 'text/html' });
+    res.end(form);
+
+});
+
+var fs = require('fs');
+
+storage = multer.diskStorage({
+    destination: './uploads/',
+    filename: function(req, file, cb) {
+        return crypto.pseudoRandomBytes(16, function(err, raw) {
+            if (err) {
+                return cb(err);
+            }
+            return cb(null, "" + (raw.toString('hex')) + (path.extname(file.originalname)));
+        });
+    }
+});
+
+// Post files
+app.post(
+    "/upload",
+    multer({
+        storage: storage
+    }).single('upload'), function(req, res) {
+        console.log(req.file);
+        console.log(req.body);
+        res.redirect("/uploads/" + req.file.filename);
+        console.log(req.file.filename);
+        return res.status(200).end();
+    });
+
+app.get('/uploads/:upload', function (req, res){
+    file = req.params.upload;
+    console.log(req.params.upload);
+    var img = fs.readFileSync(__dirname + "/uploads/" + file);
+    res.writeHead(200, {'Content-Type': 'image/png' });
+    res.end(img, 'binary');
+
+});
+
 /* REGISTER */
 app.post('/register/',(req,res,next)=>{
     var post_data = req.body;  //Get POST params
@@ -83,18 +133,18 @@ app.post('/register/',(req,res,next)=>{
 
     var name = post_data.name;
     var email = post_data.email;
+    var prenom = post_data.prenom;
+    var tel_user = post_data.tel_user;
+    var image_user = post_data.image_user;
 
     con.query('SELECT * FROM user where email=?',[email],function (err,result,fields) {
-        con.on('error',function (err) {
-            console.log('[MYSQL ERROR]',err);
-            
-        });
+
         if (result && result.length)
             res.json('Cette adresse mail est déjà utilisé');
         else {
-            con.query('INSERT INTO `user`(`unique_id`, `name`, `email`, `encrypted_password`, `salt`, `created_at`, `updated_at`, `prenom`, `tel_user`) ' +
-                'VALUES (?,?,?,?,?,NOW(),NOW(),?,?)',[uid,name,email,password,salt,prenom,tel_user],function (err,result,fields) {
-                if (err) throw err;
+            con.query('INSERT INTO `user`(`unique_id`, `name`, `email`, `encrypted_password`, `salt`, `created_at`, `updated_at`, `prenom`, `tel_user`, `image_user`) ' +
+                'VALUES (?,?,?,?,?,NOW(),NOW(),?,?,?)',[uid,name,email,password,salt,prenom,tel_user,image_user],function (err,result,fields) {
+               if (err) throw err;
 
                 res.json('Vous ètes inscrit avec succés');
 
@@ -120,7 +170,7 @@ app.post('/login/',(req,res,next)=>{
                 var encrypted_password = result[0].encrypted_password;
                 var hashed_password = checkHashPassword(user_password, salt).passwordHash;
                 if (encrypted_password == hashed_password)
-                    res.end(JSON.stringify(result[0]))
+                    res.send({ user:result });
                 else
                     res.end(JSON.stringify('Vérifiez votre mot de passe'));
             }
@@ -166,7 +216,7 @@ app.get('/user/show/:id', (req, res) => {
 /* SHOW EVENT */
 app.get('/evenement/show', (req, res) => {
 
-    con.query('SELECT * FROM evenement ORDER BY date_debut_evenement desc',((err, results, fields) => {
+    con.query('SELECT * FROM evenement',((err, results, fields) => {
         if(!err){
             res.send({ evenements:results });
         }
@@ -188,9 +238,20 @@ app.post('/evenement/add',(req,res,next)=>{
     var distance_evenement = post_data.distance_evenement;
     var photo_evenement = post_data.photo_evenement;
     var lieux_evenement = post_data.lieux_evenement;
+    var infoline = post_data.infoline;
+    var difficulte_evenement = post_data.difficulte_evenement;
+    var prix_evenement = post_data.prix_evenement;
+    var nbr_place = post_data.nbr_place;
+    var description_evenement = post_data.description_evenement;
+    var id_user = post_data.id_user;
 
-    con.query('INSERT INTO `evenement`(`nom_evenement`, `type_evenement`, `date_debut_evenement`, `date_fin_evenement`, `distance_evenement`, `photo_evenement`, `lieux_evenement`) ' +
-        'VALUES (?,?,NOW(),NOW(),?,?,?)',[nom_evenement,type_evenement,distance_evenement,photo_evenement,lieux_evenement],function (err,result,fields) {
+
+
+
+
+
+    con.query('INSERT INTO `evenement`(`nom_evenement`, `type_evenement`, `date_debut_evenement`, `date_fin_evenement`, `distance_evenement`, `photo_evenement`, `lieux_evenement`,`infoline`,`difficulte_evenement`,`prix_evenement`,`nbr_place`,`description_evenement`,`id_user`) ' +
+        'VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)',[nom_evenement,type_evenement,date_debut_evenement,date_fin_evenement,distance_evenement,photo_evenement,lieux_evenement,infoline,difficulte_evenement,prix_evenement,nbr_place,description_evenement,id_user],function (err,result,fields) {
                 if (err) throw err;
 
                 res.json('Evenement ajouté avec succés');
@@ -207,10 +268,15 @@ app.get('/evenement/show/:id', (req, res) => {
 
 
     con.query('SELECT * FROM `evenement` WHERE id_evenement =?' ,[id],  (error, result) => {
-        if (error) throw error;
+       // if (error) throw error;
 
-        res.send(result);
-        console.log(result);
+        if(!error){
+            res.send({ evenement:result });
+        }
+        else {
+            console.log(error)
+
+        }
     });
 
 });
@@ -237,6 +303,140 @@ app.put('/evenement/edit/:id', (req, res) => {
         res.send('Evenement modifié avec succés');
     });
 });
+
+/* ADD ARTICLE */
+app.post('/article/add',(req,res,next)=>{
+    var post_data = req.body;  //Get POST params
+    var titre_article = post_data.titre_article;
+    var description_article = post_data.description_article;
+    var location_article = post_data.location_article;
+   // var date_article = post_data.date_article;
+    var categorie_article = post_data.categorie_article;
+    var prix_article = post_data.prix_article;
+    var image_article = post_data.image_article;
+    var user_id = post_data.user_id;
+
+let currentDate = Date.now();
+    let date_ob = new Date(currentDate);
+    let date = date_ob.getDate();
+    let month = date_ob.getMonth() + 1;
+    let year = date_ob.getFullYear();
+    let dateFinal = year + "-" + month + "-" + date;
+
+
+
+
+
+
+    con.query('INSERT INTO `article`( `titre_article`, `description_article`, `location_article`, `date_article`, `categorie_article`, `prix_article`,`image_article`,`user_id`) ' +
+        'VALUES (?,?,?,?,?,?,?,?)',[titre_article,description_article,location_article,dateFinal,categorie_article,prix_article,image_article,user_id],function (err,result,fields) {
+        if (err) throw err;
+
+        res.json('Article ajouté avec succés');
+
+    });
+
+});
+/* ADD PARTICIPANT */
+app.post('/participant/add',(req,res,next)=>{
+    var post_data = req.body;  //Get POST params
+
+    var id_user = post_data.id_user;
+    var id_evenement = post_data.id_evenement;
+    con.query('SELECT * FROM participants where id_user=? and id_evenement=?',[id_user,id_evenement],function (err,result,fields) {
+
+        if (result && result.length)
+            res.json('participated already');
+        else {
+            con.query('INSERT INTO `participants`(`id_user`, `id_evenement`)' +
+                'VALUES (?,?)', [id_user, id_evenement], function (err, result, fields) {
+                if (err) throw err;
+
+                res.json('Participant ajouté avec succés');
+
+            });
+
+        }
+
+});
+});
+
+/* UPDATE EVENT nbr place
+app.put('/participate/:id', (req, res) => {
+
+
+    const id = req.params.id;
+    con.query('SELECT nbr_place FROM evenement where  id_evenement=?',[id],function (err,result,fields) {
+        if (err) throw err;
+
+
+        if (result && result.length > 0) {
+            if (result[0].nbr_place > 0) {
+                //there are places
+                con.query('UPDATE evenement SET nbr_place = nbr_place - 1 WHERE id_evenement = ?', [id], (error, result) => {
+                    if (error) throw error;
+
+                    res.send('decremented successfully');
+                });
+            } else {
+                res.json('no more places');
+            }
+        }
+    });
+});*/
+
+app.put('/participate/:id', (req, res) => {
+    const id = req.params.id;
+    con.query(
+        'UPDATE evenement SET nbr_place = nbr_place - 1 WHERE id_evenement = ? and nbr_place > 0',
+        [id],
+        function (err,result,fields) {
+            if (err) throw err;
+            if (result.affectedRows > 0) {
+                res.send('decremented successfully');
+            } else {
+                res.json('no more places');
+            }
+        }
+    );
+});
+
+
+/* SHOW MY EVENTS */
+app.get('/myevents/:id', (req, res) => {
+    const id = req.params.id;
+
+
+    con.query('SELECT * FROM evenement WHERE id_user = ?',[id],((err, results, fields) => {
+        if(!err){
+            res.send({ evenements:results });
+        }
+        else {
+            console.log(err)
+
+        }
+    }))
+
+});
+
+/* SHOW MY EVENTS */
+app.get('/myarticles/:id', (req, res) => {
+    const id = req.params.id;
+
+
+    con.query('SELECT * FROM article WHERE id_user = ?',[id],((err, results, fields) => {
+        if(!err){
+            res.send({ articles:results });
+        }
+        else {
+            console.log(err)
+
+        }
+    }))
+
+});
+
+
 
 
 

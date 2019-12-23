@@ -7,7 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5214C501239B6651003873B9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5214C500239B6650003873B9 /* ProfileViewController.swift */; };
+		52470E7023A04AA3001F316E /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52470E6F23A04AA3001F316E /* EventDetailsViewController.swift */; };
 		5249C51A23862EDC00526347 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5249C51923862EDC00526347 /* EventViewController.swift */; };
+		524E5664239886C9008267DE /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524E5663239886C9008267DE /* AddEventViewController.swift */; };
+		529BA48F23A7C17800F2C986 /* MyEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529BA48E23A7C17800F2C986 /* MyEventsViewController.swift */; };
+		529BA49123A7C2DE00F2C986 /* FavoriteEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529BA49023A7C2DE00F2C986 /* FavoriteEventsViewController.swift */; };
+		529BA49323A7CE7400F2C986 /* MyArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529BA49223A7CE7400F2C986 /* MyArticlesViewController.swift */; };
+		529BA49523A7E8C300F2C986 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529BA49423A7E8C300F2C986 /* FavoriteViewController.swift */; };
+		529BA49723A7E95C00F2C986 /* FavoriteArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529BA49623A7E95C00F2C986 /* FavoriteArticlesViewController.swift */; };
+		52A0B05F23A8F21100664FF6 /* DetailsEventContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A0B05E23A8F21100664FF6 /* DetailsEventContainerViewController.swift */; };
 		52A165E923861E6D00FFF013 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A165E823861E6D00FFF013 /* AppDelegate.swift */; };
 		52A165EB23861E6D00FFF013 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A165EA23861E6D00FFF013 /* SceneDelegate.swift */; };
 		52A165ED23861E6D00FFF013 /* AcceuilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A165EC23861E6D00FFF013 /* AcceuilViewController.swift */; };
@@ -17,6 +26,7 @@
 		52A165F823861E6F00FFF013 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52A165F623861E6F00FFF013 /* LaunchScreen.storyboard */; };
 		52A166002386201F00FFF013 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A165FF2386201F00FFF013 /* LoginViewController.swift */; };
 		52A166022386203000FFF013 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A166012386203000FFF013 /* RegisterViewController.swift */; };
+		52E37697239D5CA7004C0C15 /* AddArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E37696239D5CA7004C0C15 /* AddArticleViewController.swift */; };
 		52FAA2D8238AE77400540E27 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FAA2D3238AE77400540E27 /* CircleButton.swift */; };
 		52FAA2D9238AE77400540E27 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FAA2D4238AE77400540E27 /* Gradient.swift */; };
 		52FAA2DA238AE77400540E27 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FAA2D5238AE77400540E27 /* MenuItem.swift */; };
@@ -27,7 +37,17 @@
 
 /* Begin PBXFileReference section */
 		33C2669D17D09E3F198C851C /* Pods-ProjetIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjetIOS.release.xcconfig"; path = "Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS.release.xcconfig"; sourceTree = "<group>"; };
+		5214C500239B6650003873B9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		52470E6F23A04AA3001F316E /* EventDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
 		5249C51923862EDC00526347 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		524E5662239858CC008267DE /* credentials.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
+		524E5663239886C9008267DE /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
+		529BA48E23A7C17800F2C986 /* MyEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventsViewController.swift; sourceTree = "<group>"; };
+		529BA49023A7C2DE00F2C986 /* FavoriteEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteEventsViewController.swift; sourceTree = "<group>"; };
+		529BA49223A7CE7400F2C986 /* MyArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyArticlesViewController.swift; sourceTree = "<group>"; };
+		529BA49423A7E8C300F2C986 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		529BA49623A7E95C00F2C986 /* FavoriteArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteArticlesViewController.swift; sourceTree = "<group>"; };
+		52A0B05E23A8F21100664FF6 /* DetailsEventContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsEventContainerViewController.swift; sourceTree = "<group>"; };
 		52A165E523861E6D00FFF013 /* ProjetIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjetIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52A165E823861E6D00FFF013 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52A165EA23861E6D00FFF013 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +59,7 @@
 		52A165F923861E6F00FFF013 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52A165FF2386201F00FFF013 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ProjetIOS/LoginViewController.swift; sourceTree = SOURCE_ROOT; };
 		52A166012386203000FFF013 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		52E37696239D5CA7004C0C15 /* AddArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddArticleViewController.swift; sourceTree = "<group>"; };
 		52FAA2D3238AE77400540E27 /* CircleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		52FAA2D4238AE77400540E27 /* Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
 		52FAA2D5238AE77400540E27 /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
@@ -85,7 +106,18 @@
 				52A165E823861E6D00FFF013 /* AppDelegate.swift */,
 				52A165EA23861E6D00FFF013 /* SceneDelegate.swift */,
 				52A165EC23861E6D00FFF013 /* AcceuilViewController.swift */,
+				524E5662239858CC008267DE /* credentials.plist */,
 				52A165EE23861E6D00FFF013 /* Main.storyboard */,
+				52A0B05E23A8F21100664FF6 /* DetailsEventContainerViewController.swift */,
+				529BA49423A7E8C300F2C986 /* FavoriteViewController.swift */,
+				529BA49223A7CE7400F2C986 /* MyArticlesViewController.swift */,
+				529BA49023A7C2DE00F2C986 /* FavoriteEventsViewController.swift */,
+				529BA49623A7E95C00F2C986 /* FavoriteArticlesViewController.swift */,
+				529BA48E23A7C17800F2C986 /* MyEventsViewController.swift */,
+				52470E6F23A04AA3001F316E /* EventDetailsViewController.swift */,
+				52E37696239D5CA7004C0C15 /* AddArticleViewController.swift */,
+				5214C500239B6650003873B9 /* ProfileViewController.swift */,
+				524E5663239886C9008267DE /* AddEventViewController.swift */,
 				5249C51923862EDC00526347 /* EventViewController.swift */,
 				52A165FF2386201F00FFF013 /* LoginViewController.swift */,
 				52A166012386203000FFF013 /* RegisterViewController.swift */,
@@ -139,6 +171,7 @@
 				52A165E223861E6D00FFF013 /* Frameworks */,
 				52A165E323861E6D00FFF013 /* Resources */,
 				98CF9BB1DA983B5D23EB58F1 /* [CP] Embed Pods Frameworks */,
+				6D8A7A3319E490897313C8FE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -196,6 +229,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		6D8A7A3319E490897313C8FE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		98CF9BB1DA983B5D23EB58F1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -242,17 +292,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52A0B05F23A8F21100664FF6 /* DetailsEventContainerViewController.swift in Sources */,
 				52A165ED23861E6D00FFF013 /* AcceuilViewController.swift in Sources */,
+				524E5664239886C9008267DE /* AddEventViewController.swift in Sources */,
 				52A165F323861E6D00FFF013 /* ProjetIOS.xcdatamodeld in Sources */,
+				52470E7023A04AA3001F316E /* EventDetailsViewController.swift in Sources */,
 				52A165E923861E6D00FFF013 /* AppDelegate.swift in Sources */,
+				5214C501239B6651003873B9 /* ProfileViewController.swift in Sources */,
 				52FAA2D8238AE77400540E27 /* CircleButton.swift in Sources */,
 				52A166022386203000FFF013 /* RegisterViewController.swift in Sources */,
 				5249C51A23862EDC00526347 /* EventViewController.swift in Sources */,
 				52FAA2DC238AE77400540E27 /* Configuration.swift in Sources */,
 				52FAA2DB238AE77400540E27 /* StackMenu.swift in Sources */,
 				52A166002386201F00FFF013 /* LoginViewController.swift in Sources */,
+				529BA49723A7E95C00F2C986 /* FavoriteArticlesViewController.swift in Sources */,
+				52E37697239D5CA7004C0C15 /* AddArticleViewController.swift in Sources */,
+				529BA49123A7C2DE00F2C986 /* FavoriteEventsViewController.swift in Sources */,
+				529BA49523A7E8C300F2C986 /* FavoriteViewController.swift in Sources */,
 				52A165EB23861E6D00FFF013 /* SceneDelegate.swift in Sources */,
 				52FAA2D9238AE77400540E27 /* Gradient.swift in Sources */,
+				529BA49323A7CE7400F2C986 /* MyArticlesViewController.swift in Sources */,
+				529BA48F23A7C17800F2C986 /* MyEventsViewController.swift in Sources */,
 				52FAA2DA238AE77400540E27 /* MenuItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,6 +459,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5VX8NZMBNN;
 				INFOPLIST_FILE = ProjetIOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -418,6 +479,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5VX8NZMBNN;
 				INFOPLIST_FILE = ProjetIOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (

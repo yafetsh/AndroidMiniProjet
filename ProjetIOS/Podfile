@@ -8,6 +8,11 @@ target 'ProjetIOS' do
   # Pods for ProjetIOS
   pod 'Alamofire'
   pod 'SwiftyJSON'
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
+  pod 'GoogleSignIn'
+  pod 'BATabBarController', '~> 2.0.0'
+
 
 
 end
