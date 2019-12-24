@@ -43,7 +43,6 @@ class AddEventViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var distancetf: UITextField!
     @IBOutlet weak var difficultetf: UITextField!
     @IBOutlet weak var nbrplacetf: UITextField!
-    
     @IBOutlet weak var stepperplace: UIStepper!
     @IBOutlet weak var debutf: UITextField!
     let defaults = UserDefaults.standard

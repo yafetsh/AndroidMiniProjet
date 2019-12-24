@@ -691,19 +691,6 @@
                                     <action selector="display_details:" destination="w6g-Rg-GUX" eventType="touchUpInside" id="C5z-a5-0EN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LkM-qF-CGf">
-                                <rect key="frame" x="34" y="252" width="130" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Participer">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="btn_login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Re-ri-fAh"/>
-                                    <action selector="btn_participate:" destination="w6g-Rg-GUX" eventType="touchUpInside" id="UiR-rx-hUg"/>
-                                    <action selector="update_btn:" destination="hkq-B9-Tk4" eventType="touchUpInside" id="KSx-Xe-MNg"/>
-                                </connections>
-                            </button>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kSl-Ay-u4n">
                                 <rect key="frame" x="0.0" y="402" width="414" height="440"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -718,6 +705,20 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LkM-qF-CGf">
+                                <rect key="frame" x="32" y="257" width="114" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <state key="normal" title="Participer" image="checkmark.seal.fill" catalog="system">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btn_login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Re-ri-fAh"/>
+                                    <action selector="btn_participate:" destination="w6g-Rg-GUX" eventType="touchUpInside" id="UiR-rx-hUg"/>
+                                    <action selector="update_btn:" destination="hkq-B9-Tk4" eventType="touchUpInside" id="KSx-Xe-MNg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="QxR-zx-5ig"/>
@@ -1183,6 +1184,7 @@
         <image name="bg" width="2560" height="3840"/>
         <image name="camera" width="512" height="512"/>
         <image name="cart" catalog="system" width="64" height="50"/>
+        <image name="checkmark.seal.fill" catalog="system" width="64" height="60"/>
         <image name="default" width="530" height="530"/>
         <image name="house.fill" catalog="system" width="64" height="52"/>
         <image name="logoV1.0" width="2671" height="1870"/>
