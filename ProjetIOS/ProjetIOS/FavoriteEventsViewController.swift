@@ -42,14 +42,49 @@ class FavoriteEventsViewController: UIViewController, UITableViewDataSource , UI
         let cell = favorisEventTableView.dequeueReusableCell(withIdentifier: "FavorisCell")
         let contentView = cell?.viewWithTag(0)
         let eventId = contentView?.viewWithTag(4) as! UILabel
-        //               let eventName = contentView?.viewWithTag(1) as! UILabel
-        //               let eventDate = contentView?.viewWithTag(2) as! UILabel
-        //               let eventDescription = contentView?.viewWithTag(3) as! UITextView
+        let eventName = contentView?.viewWithTag(1) as! UILabel
+        let eventDate = contentView?.viewWithTag(2) as! UILabel
+        let eventDescription = contentView?.viewWithTag(3) as! UITextView
         let item = lists[indexPath.row]
         print(item)
         eventId.text = String((item.value(forKey: "id_event") as! Int))
+        eventName.text = item.value(forKey: "nom") as? String
+        eventDate.text = item.value(forKey: "debut") as? String
+        eventDescription.text = item.value(forKey: "desc") as? String
+
+
+
         return cell!
     }
+//    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+//           return true
+//       }
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//
+//        if editingStyle == .delete {
+//            lists.remove(at: indexPath.row)
+//
+//            favorisEventTableView.beginUpdates()
+//            favorisEventTableView.deleteRows(at: [indexPath], with: .automatic)
+//            let appDelegate = UIApplication.shared.delegate as? AppDelegate
+//            let coreContext = appDelegate?.persistentContainer.viewContext
+//            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Favoris")
+//            do{
+//                let result = try coreContext!.fetch(fetchRequest)
+//                coreContext?.delete(result[indexPath.row])
+//                try coreContext?.save()
+//                favorisEventTableView.reloadData()
+//            } catch let error as NSError {
+//                print(error.userInfo)
+//            }
+//
+//
+//
+//
+//            favorisEventTableView.endUpdates()
+//
+//        }
+//    }
     
     func loadFavoris() {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate

@@ -9,7 +9,16 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import GooglePlaces
+import MapKit
+
 class AddEventViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource,UITextFieldDelegate {
+    
+    @IBOutlet weak var tblSearchResult: UITableView!
+    
+    var searchCompleter = MKLocalSearchCompleter()
+    var searchResults = [MKLocalSearchCompletion]()
+    
     let myPickerData =  ["Family Camps", "Art Camps", "Education Camps", "Sport Camps", "Overnight Camps"]
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -33,6 +42,7 @@ class AddEventViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     @IBOutlet weak var nomtf: UITextField!
     
+    @IBOutlet weak var locationView: UIView!
     @IBOutlet weak var typetf: UITextField!
     @IBOutlet weak var fintf: UITextField!
     @IBOutlet weak var descriptiontf: UITextView!
@@ -87,6 +97,16 @@ class AddEventViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         difficultetf.text = Int(sender.value).description
         
     }
+
+  
+    @IBAction func locationAgain(_ sender: Any) {
+        locationView.isHidden = true
+
+    }
+    @IBAction func locationClick(_ sender: Any) {
+        locationView.isHidden = false
+
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         //type picker
@@ -98,6 +118,7 @@ class AddEventViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         difficultetf.isEnabled = false
         prixtf.delegate = self
         prixtf.keyboardType = .numberPad
+      
         
         
         
@@ -133,6 +154,8 @@ class AddEventViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         view.endEditing(true)
     }
+    
+  
     
     
     
@@ -207,4 +230,21 @@ class AddEventViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
      }
      */
     
+}
+extension AddEventViewController: GMSAutocompleteViewControllerDelegate {
+  func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+    // Get the place name from 'GMSAutocompleteViewController'
+    // Then display the name in textField
+    lieuxtf.text = place.name
+// Dismiss the GMSAutocompleteViewController when something is selected
+    dismiss(animated: true, completion: nil)
+  }
+func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+    // Handle the error
+    print("Error: ", error.localizedDescription)
+  }
+func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+    // Dismiss when the user canceled the action
+    dismiss(animated: true, completion: nil)
+  }
 }

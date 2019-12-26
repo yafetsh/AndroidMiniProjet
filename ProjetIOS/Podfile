@@ -12,6 +12,8 @@ target 'ProjetIOS' do
   pod 'FacebookLogin'
   pod 'GoogleSignIn'
   pod 'BATabBarController', '~> 2.0.0'
+  pod 'GooglePlaces'
+  pod 'GoogleMaps'
 
 
 

@@ -47,6 +47,7 @@ class DetailsEventContainerViewController: UIViewController {
                 
                 for i in resultArray.arrayValue {
                     self.prix.text = "\(i["prix_evenement"].stringValue) DT"
+
                     self.infoline.text = i["infoline"].stringValue
                     self.difficulte.text = "Difficulté:  \(i["difficulte_evenement"].stringValue)/10"
                     self.lieux.text = "Lieux: \(i["lieux_evenement"].stringValue)"
@@ -57,6 +58,24 @@ class DetailsEventContainerViewController: UIViewController {
                     self.descriptionlbl.text = i["description_evenement"].stringValue
                     
                 }
+                self.defaults.set(self.prix.text, forKey: "event_prix")
+                self.defaults.set(self.infoline.text, forKey: "event_infoline")
+                self.defaults.set(Int(self.difficulte.text!), forKey: "event_difficulte")
+                self.defaults.set(self.lieux.text, forKey: "event_lieux")
+                self.defaults.set(Int(self.distance.text!), forKey: "event_distance")
+                self.defaults.set(self.type.text, forKey: "event_type")
+                self.defaults.set(self.debut.text, forKey: "event_debut")
+                self.defaults.set(self.fin.text, forKey: "event_fin")
+                self.defaults.set(self.descriptionlbl.text, forKey: "event_description")
+
+
+
+
+
+
+
+
+
                 break
                 
             case .failure:

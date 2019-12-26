@@ -133,8 +133,14 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let indice = indexPath.row
 
         let eventId = arr_event_id[indice]
+            let eventName = arr_event_name[indice]
+
         print("event clicked \(eventId)")
+            print("event name \(eventName)")
+
         self.defaults.set(eventId, forKey: "event_id")
+        self.defaults.set(eventName, forKey: "event_name")
+
 
 
         //        let imgCandidat = imagesCandidats[indice]
@@ -144,6 +150,8 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //        detailsViewController.img = imgCandidat
 
         detailsViewController.idEvent = eventId
+            detailsViewController.nameEvent = eventName
+
 
 }
     }

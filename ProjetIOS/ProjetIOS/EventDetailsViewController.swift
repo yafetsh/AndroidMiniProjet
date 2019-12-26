@@ -20,6 +20,8 @@ class EventDetailsViewController: UIViewController {
     @IBOutlet weak var nom: UILabel!
     @IBOutlet weak var btn_participate: UIButton!
     var idEvent:String?
+    var nameEvent:String?
+
     @IBOutlet weak var participatebtn: UIButton!
     
     
@@ -59,12 +61,39 @@ class EventDetailsViewController: UIViewController {
     }
     func addToFavoris(){
         let eventId =  defaults.integer(forKey: "event_id")
-        
+        let eventName =  defaults.object(forKey: "event_name") as? String
+        let eventType =  defaults.object(forKey: "event_type") as? String
+        let eventDebut =  defaults.object(forKey: "event_debut") as? String
+        let eventFin =  defaults.object(forKey: "event_fin") as? String
+        let eventDistance =  defaults.integer(forKey: "event_distance")
+        let eventPhoto =  defaults.object(forKey: "event_photo") as? String
+        let eventLieux =  defaults.object(forKey: "event_lieux") as? String
+        let eventInfoline =  defaults.object(forKey: "event_infoline") as? String
+        let eventDifficulte =  defaults.integer(forKey: "event_difficulte")
+        let eventPrix =  defaults.integer(forKey: "event_prix")
+        let eventDescription =  defaults.object(forKey: "event_description") as? String
+
+
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         let coreContext = appDelegate?.persistentContainer.viewContext
         let itemEntityDescription = NSEntityDescription.entity(forEntityName: "Favoris", in: coreContext!)
         let item = NSManagedObject(entity: itemEntityDescription!, insertInto: coreContext)
         item.setValue(eventId , forKey: "id_event")
+        item.setValue(eventName , forKey: "nom")
+        item.setValue(eventType , forKey: "type")
+        item.setValue(eventDebut , forKey: "debut")
+        item.setValue(eventFin , forKey: "fin")
+        item.setValue(eventDistance , forKey: "distance")
+        item.setValue(eventPhoto , forKey: "photo")
+        item.setValue(eventLieux , forKey: "lieux")
+        item.setValue(eventInfoline , forKey: "infoline")
+        item.setValue(eventDifficulte , forKey: "difficulte")
+        item.setValue(eventPrix , forKey: "prix")
+        item.setValue(eventDescription , forKey: "desc")
+
+
+
+
         
         do {
             try coreContext?.save()
@@ -87,6 +116,7 @@ class EventDetailsViewController: UIViewController {
         
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Favoris")
         fetchRequest.predicate = NSPredicate(format: "id_event = %d", eventId)
+        
         
         do
         {
@@ -174,11 +204,11 @@ class EventDetailsViewController: UIViewController {
                                 })
                                 self.present(myalert, animated: true)
                                 self.btn_participate.setTitle("Annuler", for: .normal)
-                                                               self.btn_participate.backgroundColor = .red
-                                                               if #available(iOS 13.0, *) {
-                                                                   self.btn_participate.setImage(UIImage(systemName: "xmark.seal.fill"), for: .normal)
-                                                                   self.btn_participate.tintColor = .white
-                                                               }
+                                self.btn_participate.backgroundColor = .red
+                                if #available(iOS 13.0, *) {
+                                    self.btn_participate.setImage(UIImage(systemName: "xmark.seal.fill"), for: .normal)
+                                    self.btn_participate.tintColor = .white
+                                }
                             }
                             else if (resJson == "no more places" && resJson1 == "participated already")
                             {
