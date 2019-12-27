@@ -21,7 +21,7 @@ class EventDetailsViewController: UIViewController {
     @IBOutlet weak var btn_participate: UIButton!
     var idEvent:String?
     var nameEvent:String?
-
+    
     @IBOutlet weak var participatebtn: UIButton!
     
     
@@ -31,6 +31,9 @@ class EventDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         let id =  defaults.integer(forKey: "event_id")
+        //        let name =  defaults.integer(forKey: "event_name")
+        nom.text = nameEvent
+        
         super.viewDidLoad()
         if #available(iOS 13.0, *) {
             if (retrieveFavoris(eventId: id) == true)
@@ -72,8 +75,8 @@ class EventDetailsViewController: UIViewController {
         let eventDifficulte =  defaults.integer(forKey: "event_difficulte")
         let eventPrix =  defaults.integer(forKey: "event_prix")
         let eventDescription =  defaults.object(forKey: "event_description") as? String
-
-
+        
+        
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         let coreContext = appDelegate?.persistentContainer.viewContext
         let itemEntityDescription = NSEntityDescription.entity(forEntityName: "Favoris", in: coreContext!)
@@ -90,10 +93,10 @@ class EventDetailsViewController: UIViewController {
         item.setValue(eventDifficulte , forKey: "difficulte")
         item.setValue(eventPrix , forKey: "prix")
         item.setValue(eventDescription , forKey: "desc")
-
-
-
-
+        
+        
+        
+        
         
         do {
             try coreContext?.save()

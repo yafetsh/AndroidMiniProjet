@@ -308,10 +308,11 @@ app.put('/evenement/edit/:id', (req, res) => {
 app.post('/article/add',(req,res,next)=>{
     var post_data = req.body;  //Get POST params
     var titre_article = post_data.titre_article;
+    var type_article = post_data.type_article;
     var description_article = post_data.description_article;
     var location_article = post_data.location_article;
-   // var date_article = post_data.date_article;
     var categorie_article = post_data.categorie_article;
+    var sous_categorie_article = post_data.sous_categorie_article;
     var prix_article = post_data.prix_article;
     var image_article = post_data.image_article;
     var user_id = post_data.user_id;
@@ -328,8 +329,8 @@ let currentDate = Date.now();
 
 
 
-    con.query('INSERT INTO `article`( `titre_article`, `description_article`, `location_article`, `date_article`, `categorie_article`, `prix_article`,`image_article`,`user_id`) ' +
-        'VALUES (?,?,?,?,?,?,?,?)',[titre_article,description_article,location_article,dateFinal,categorie_article,prix_article,image_article,user_id],function (err,result,fields) {
+    con.query('INSERT INTO `article`( `titre_article`,`type_article`, `description_article`, `location_article`, `date_article`, `categorie_article`,`sous_categorie_article`, `prix_article`,`image_article`,`user_id`) ' +
+        'VALUES (?,?,?,?,?,?,?,?,?,?)',[titre_article,type_article,description_article,location_article,dateFinal,categorie_article,sous_categorie_article,prix_article,image_article,user_id],function (err,result,fields) {
         if (err) throw err;
 
         res.json('Article ajouté avec succés');
