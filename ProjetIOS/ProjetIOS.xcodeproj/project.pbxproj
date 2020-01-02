@@ -11,6 +11,11 @@
 		52470E7023A04AA3001F316E /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52470E6F23A04AA3001F316E /* EventDetailsViewController.swift */; };
 		5249C51A23862EDC00526347 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5249C51923862EDC00526347 /* EventViewController.swift */; };
 		524E5664239886C9008267DE /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524E5663239886C9008267DE /* AddEventViewController.swift */; };
+		528A3AE223BA019700932F89 /* ProfileEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528A3AE123BA019700932F89 /* ProfileEventViewController.swift */; };
+		528A3AE423BA029100932F89 /* ProfileInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528A3AE323BA029100932F89 /* ProfileInfoViewController.swift */; };
+		528A3AE623BA03BB00932F89 /* ProfileEventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528A3AE523BA03BB00932F89 /* ProfileEventDetailsViewController.swift */; };
+		528A3AE823BA03E700932F89 /* ProfileArticleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528A3AE723BA03E700932F89 /* ProfileArticleDetailViewController.swift */; };
+		528FEE3C23B5BB9600126646 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528FEE3B23B5BB9600126646 /* ArticleViewController.swift */; };
 		529BA48F23A7C17800F2C986 /* MyEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529BA48E23A7C17800F2C986 /* MyEventsViewController.swift */; };
 		529BA49123A7C2DE00F2C986 /* FavoriteEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529BA49023A7C2DE00F2C986 /* FavoriteEventsViewController.swift */; };
 		529BA49323A7CE7400F2C986 /* MyArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529BA49223A7CE7400F2C986 /* MyArticlesViewController.swift */; };
@@ -42,6 +47,11 @@
 		5249C51923862EDC00526347 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		524E5662239858CC008267DE /* credentials.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		524E5663239886C9008267DE /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
+		528A3AE123BA019700932F89 /* ProfileEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEventViewController.swift; sourceTree = "<group>"; };
+		528A3AE323BA029100932F89 /* ProfileInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoViewController.swift; sourceTree = "<group>"; };
+		528A3AE523BA03BB00932F89 /* ProfileEventDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEventDetailsViewController.swift; sourceTree = "<group>"; };
+		528A3AE723BA03E700932F89 /* ProfileArticleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileArticleDetailViewController.swift; sourceTree = "<group>"; };
+		528FEE3B23B5BB9600126646 /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		529BA48E23A7C17800F2C986 /* MyEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventsViewController.swift; sourceTree = "<group>"; };
 		529BA49023A7C2DE00F2C986 /* FavoriteEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteEventsViewController.swift; sourceTree = "<group>"; };
 		529BA49223A7CE7400F2C986 /* MyArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyArticlesViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +91,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		528A3AE923BA068000932F89 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				5214C500239B6650003873B9 /* ProfileViewController.swift */,
+				528A3AE523BA03BB00932F89 /* ProfileEventDetailsViewController.swift */,
+				528A3AE723BA03E700932F89 /* ProfileArticleDetailViewController.swift */,
+				528A3AE323BA029100932F89 /* ProfileInfoViewController.swift */,
+				528A3AE123BA019700932F89 /* ProfileEventViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		528A3AEA23BA06AF00932F89 /* Article */ = {
+			isa = PBXGroup;
+			children = (
+				529BA49223A7CE7400F2C986 /* MyArticlesViewController.swift */,
+				528FEE3B23B5BB9600126646 /* ArticleViewController.swift */,
+				529BA49623A7E95C00F2C986 /* FavoriteArticlesViewController.swift */,
+				52E37696239D5CA7004C0C15 /* AddArticleViewController.swift */,
+			);
+			path = Article;
+			sourceTree = "<group>";
+		};
+		528A3AEB23BA06C400932F89 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				52A0B05E23A8F21100664FF6 /* DetailsEventContainerViewController.swift */,
+				529BA49023A7C2DE00F2C986 /* FavoriteEventsViewController.swift */,
+				529BA48E23A7C17800F2C986 /* MyEventsViewController.swift */,
+				52470E6F23A04AA3001F316E /* EventDetailsViewController.swift */,
+				524E5663239886C9008267DE /* AddEventViewController.swift */,
+				5249C51923862EDC00526347 /* EventViewController.swift */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
 		52A165DC23861E6D00FFF013 = {
 			isa = PBXGroup;
 			children = (
@@ -102,23 +148,16 @@
 		52A165E723861E6D00FFF013 /* ProjetIOS */ = {
 			isa = PBXGroup;
 			children = (
+				528A3AEB23BA06C400932F89 /* Event */,
+				528A3AEA23BA06AF00932F89 /* Article */,
 				52FAA2D2238AE77400540E27 /* Library */,
+				528A3AE923BA068000932F89 /* Profile */,
 				52A165E823861E6D00FFF013 /* AppDelegate.swift */,
 				52A165EA23861E6D00FFF013 /* SceneDelegate.swift */,
+				529BA49423A7E8C300F2C986 /* FavoriteViewController.swift */,
 				52A165EC23861E6D00FFF013 /* AcceuilViewController.swift */,
 				524E5662239858CC008267DE /* credentials.plist */,
 				52A165EE23861E6D00FFF013 /* Main.storyboard */,
-				52A0B05E23A8F21100664FF6 /* DetailsEventContainerViewController.swift */,
-				529BA49423A7E8C300F2C986 /* FavoriteViewController.swift */,
-				529BA49223A7CE7400F2C986 /* MyArticlesViewController.swift */,
-				529BA49023A7C2DE00F2C986 /* FavoriteEventsViewController.swift */,
-				529BA49623A7E95C00F2C986 /* FavoriteArticlesViewController.swift */,
-				529BA48E23A7C17800F2C986 /* MyEventsViewController.swift */,
-				52470E6F23A04AA3001F316E /* EventDetailsViewController.swift */,
-				52E37696239D5CA7004C0C15 /* AddArticleViewController.swift */,
-				5214C500239B6650003873B9 /* ProfileViewController.swift */,
-				524E5663239886C9008267DE /* AddEventViewController.swift */,
-				5249C51923862EDC00526347 /* EventViewController.swift */,
 				52A165FF2386201F00FFF013 /* LoginViewController.swift */,
 				52A166012386203000FFF013 /* RegisterViewController.swift */,
 				52A165F423861E6F00FFF013 /* Assets.xcassets */,
@@ -292,10 +331,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				528FEE3C23B5BB9600126646 /* ArticleViewController.swift in Sources */,
 				52A0B05F23A8F21100664FF6 /* DetailsEventContainerViewController.swift in Sources */,
+				528A3AE223BA019700932F89 /* ProfileEventViewController.swift in Sources */,
 				52A165ED23861E6D00FFF013 /* AcceuilViewController.swift in Sources */,
 				524E5664239886C9008267DE /* AddEventViewController.swift in Sources */,
 				52A165F323861E6D00FFF013 /* ProjetIOS.xcdatamodeld in Sources */,
+				528A3AE623BA03BB00932F89 /* ProfileEventDetailsViewController.swift in Sources */,
 				52470E7023A04AA3001F316E /* EventDetailsViewController.swift in Sources */,
 				52A165E923861E6D00FFF013 /* AppDelegate.swift in Sources */,
 				5214C501239B6651003873B9 /* ProfileViewController.swift in Sources */,
@@ -305,12 +347,14 @@
 				52FAA2DC238AE77400540E27 /* Configuration.swift in Sources */,
 				52FAA2DB238AE77400540E27 /* StackMenu.swift in Sources */,
 				52A166002386201F00FFF013 /* LoginViewController.swift in Sources */,
+				528A3AE423BA029100932F89 /* ProfileInfoViewController.swift in Sources */,
 				529BA49723A7E95C00F2C986 /* FavoriteArticlesViewController.swift in Sources */,
 				52E37697239D5CA7004C0C15 /* AddArticleViewController.swift in Sources */,
 				529BA49123A7C2DE00F2C986 /* FavoriteEventsViewController.swift in Sources */,
 				529BA49523A7E8C300F2C986 /* FavoriteViewController.swift in Sources */,
 				52A165EB23861E6D00FFF013 /* SceneDelegate.swift in Sources */,
 				52FAA2D9238AE77400540E27 /* Gradient.swift in Sources */,
+				528A3AE823BA03E700932F89 /* ProfileArticleDetailViewController.swift in Sources */,
 				529BA49323A7CE7400F2C986 /* MyArticlesViewController.swift in Sources */,
 				529BA48F23A7C17800F2C986 /* MyEventsViewController.swift in Sources */,
 				52FAA2DA238AE77400540E27 /* MenuItem.swift in Sources */,

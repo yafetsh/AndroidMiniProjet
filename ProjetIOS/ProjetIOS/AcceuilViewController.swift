@@ -19,14 +19,14 @@ class AcceuilViewController:  UIViewController{
     
     
     @IBOutlet weak var prenom: UILabel!
-    @IBOutlet weak var connectedUsername: UILabel!
     var usr : String = ""
     let defaults = UserDefaults.standard
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        connectedUsername.text = defaults.object(forKey: "user_name") as? String
-        prenom.text = defaults.object(forKey: "user_prenom") as? String
+        let nom = defaults.object(forKey: "user_name") as? String
+        let prenom_connected = defaults.object(forKey: "user_prenom") as? String
+        prenom.text = "BIENVENUE \(String(prenom_connected!)) \(String(nom!))"
         self.navigationItem.setHidesBackButton(true, animated:true)
         self.view.gradienteBackground(colors: (initColor: UIColor(rgb: 0x6A82FB), endColor: UIColor(rgb: 0xFC5C7D)), orientation: .bottomRightTopLeft)
         let menuItems = self.getButtonsParameters()

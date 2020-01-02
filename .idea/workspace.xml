@@ -2,16 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91051e8f-53c5-4e3e-8b7b-185e0a0e1525" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/ArticleViewController.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/backpack1.imageset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Assets.xcassets/backpack1.imageset/backpack1.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/API/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjetIOS/Pods/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS-resources-Debug-input-files.xcfilelist" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetIOS/Pods/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS-resources-Debug-input-files.xcfilelist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjetIOS/Pods/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS-resources-Debug-output-files.xcfilelist" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetIOS/Pods/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS-resources-Debug-output-files.xcfilelist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjetIOS/Pods/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS-resources-Release-input-files.xcfilelist" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetIOS/Pods/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS-resources-Release-input-files.xcfilelist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjetIOS/Pods/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS-resources-Release-output-files.xcfilelist" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetIOS/Pods/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS-resources-Release-output-files.xcfilelist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/ProjetIOS.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS.xcodeproj/project.pbxproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjetIOS/ProjetIOS.xcworkspace/xcuserdata/macbookpro.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS.xcworkspace/xcuserdata/macbookpro.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/AddArticleViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/AddArticleViewController.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/Base.lproj/Main.storyboard" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/EventDetailsViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/EventDetailsViewController.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/MyEventsViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetIOS/ProjetIOS/MyEventsViewController.swift" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -109,7 +112,7 @@
       <workItem from="1576578418554" duration="439000" />
       <workItem from="1576667423128" duration="288000" />
       <workItem from="1577128901590" duration="1697000" />
-      <workItem from="1577377129503" duration="719000" />
+      <workItem from="1577377129503" duration="2145000" />
     </task>
     <servers />
   </component>

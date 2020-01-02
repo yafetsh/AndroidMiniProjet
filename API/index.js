@@ -228,6 +228,55 @@ app.get('/evenement/show', (req, res) => {
 
 });
 
+/* SHOW ARTICLE */
+app.get('/article/show', (req, res) => {
+
+    con.query('SELECT * FROM article',((err, results, fields) => {
+        if(!err){
+            res.send({ articles:results });
+        }
+        else {
+            console.log(err)
+
+        }
+    }))
+
+});
+
+/* SHOW MY ARTICLE */
+app.get('/myarticle/show/:id', (req, res) => {
+    var post_data = req.body;  //Get POST params
+
+    const id = req.params.id;
+    con.query('SELECT * FROM article WHERE id_user =?',[id],((err, results, fields) => {
+        if(!err){
+            res.send({ articles:results });
+        }
+        else {
+            console.log(err)
+
+        }
+    }))
+
+});
+
+/* SHOW MY EVENT */
+app.get('/myevent/show/:id', (req, res) => {
+    var post_data = req.body;  //Get POST params
+
+    const id = req.params.id;
+    con.query('SELECT * FROM evenement WHERE id_user =?',[id],((err, results, fields) => {
+        if(!err){
+            res.send({ evenements:results });
+        }
+        else {
+            console.log(err)
+
+        }
+    }))
+
+});
+
 /* ADD EVENT */
 app.post('/evenement/add',(req,res,next)=>{
     var post_data = req.body;  //Get POST params
@@ -272,6 +321,26 @@ app.get('/evenement/show/:id', (req, res) => {
 
         if(!error){
             res.send({ evenement:result });
+        }
+        else {
+            console.log(error)
+
+        }
+    });
+
+});
+/* SHOW ARTICLE DETAILS */
+app.get('/article/show/:id', (req, res) => {
+    var post_data = req.body;  //Get POST params
+
+    const id = req.params.id;
+
+
+    con.query('SELECT * FROM `article` WHERE id_article =?' ,[id],  (error, result) => {
+        // if (error) throw error;
+
+        if(!error){
+            res.send({ article:result });
         }
         else {
             console.log(error)
@@ -362,6 +431,89 @@ app.post('/participant/add',(req,res,next)=>{
 });
 });
 
+/* VERIFY PARTICIPANT */
+app.post('/participant/verify',(req,res,next)=>{
+    var post_data = req.body;  //Get POST params
+
+    var id_user = post_data.id_user;
+    var id_evenement = post_data.id_evenement;
+    con.query('SELECT * FROM participants where id_user=? and id_evenement=?',[id_user,id_evenement],function (err,result,fields) {
+
+        if (result && result.length)
+            res.json('participated already');
+        else {
+            res.json('vous pouvez participer');
+
+
+        }
+
+    });
+});
+
+/* ADD FOLLOWER */
+app.post('/follow/add',(req,res,next)=>{
+    var post_data = req.body;  //Get POST params
+
+    var id_follower = post_data.id_follower;
+    var id_following = post_data.id_following;
+    con.query('SELECT * FROM follow where id_follower=? and id_following=?',[id_follower,id_following],function (err,result,fields) {
+
+        if (result && result.length)
+            res.json('abonné déjà');
+        else {
+            con.query('INSERT INTO `follow`(`id_follower`, `id_following`)' +
+                'VALUES (?,?)', [id_follower, id_following], function (err, result, fields) {
+                if (err) throw err;
+
+                res.json('abonné avec succés');
+
+            });
+
+        }
+
+    });
+});
+
+
+
+/* VERIFY FOLLOWER */
+app.post('/follow/verify',(req,res,next)=>{
+    var post_data = req.body;  //Get POST params
+
+    var id_follower = post_data.id_follower;
+    var id_following = post_data.id_following;
+    con.query('SELECT * FROM follow where id_follower=? and id_following=?',[id_follower,id_following],function (err,result,fields) {
+
+        if (result && result.length)
+        {
+            res.json('abonné déjà');
+        }
+        else {
+            res.json('vous pouvez abonner');
+
+        }
+
+
+    });
+});
+
+/* CANCEL FOLLOW */
+app.delete('/follow/delete',(req,res,next)=>{
+    var post_data = req.body;  //Get POST params
+
+    var id_follower = post_data.id_follower;
+    var id_following = post_data.id_following;
+    con.query('DELETE FROM `follow` WHERE id_follower=? and id_following=?', [id_follower, id_following], function (err, result, fields) {
+        if (err) throw err;
+
+        res.json('désabonné avec succés');
+
+    });
+
+
+
+});
+
 /* CANCEL PARTICIPATION */
 app.delete('/participant/delete',(req,res,next)=>{
     var post_data = req.body;  //Get POST params
@@ -430,7 +582,24 @@ app.get('/myevents/:id', (req, res) => {
 
 });
 
-/* SHOW MY EVENTS */
+/* Display which user creates the event */
+app.get('/profile/event/:id', (req, res) => {
+
+    const id = req.params.id;
+
+    con.query('SELECT evenement.id_evenement, evenement.id_user ,user.id, user.name, user.prenom FROM evenement INNER JOIN user ON evenement.id_user = user.id where evenement.id_evenement = ? ',[id],((err, results, fields) => {
+        if(!err){
+            res.send({ evenements:results });
+        }
+        else {
+            console.log(err)
+
+        }
+    }))
+
+});
+
+/* SHOW MY ARTICLES */
 app.get('/myarticles/:id', (req, res) => {
     const id = req.params.id;
 
@@ -438,6 +607,22 @@ app.get('/myarticles/:id', (req, res) => {
     con.query('SELECT * FROM article WHERE id_user = ?',[id],((err, results, fields) => {
         if(!err){
             res.send({ articles:results });
+        }
+        else {
+            console.log(err)
+
+        }
+    }))
+
+});
+/* SHOW PROFIL INFO */
+app.get('/profil/info/:id', (req, res) => {
+    const id = req.params.id;
+
+
+    con.query('SELECT id,email,tel_user FROM user WHERE id = ?',[id],((err, results, fields) => {
+        if(!err){
+            res.send({ users:results });
         }
         else {
             console.log(err)
