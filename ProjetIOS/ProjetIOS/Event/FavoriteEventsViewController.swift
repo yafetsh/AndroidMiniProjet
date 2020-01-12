@@ -24,8 +24,8 @@ class FavoriteEventsViewController: UIViewController, UITableViewDataSource , UI
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
-                loadFavoris()
-
+        loadFavoris()
+        
     }
     
     
@@ -37,7 +37,7 @@ class FavoriteEventsViewController: UIViewController, UITableViewDataSource , UI
         return lists.count
         
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = favorisEventTableView.dequeueReusableCell(withIdentifier: "FavorisCell")
         let contentView = cell?.viewWithTag(0)
@@ -51,40 +51,12 @@ class FavoriteEventsViewController: UIViewController, UITableViewDataSource , UI
         eventName.text = item.value(forKey: "nom") as? String
         eventDate.text = item.value(forKey: "debut") as? String
         eventDescription.text = item.value(forKey: "desc") as? String
-
-
-
+        
+        
+        
         return cell!
     }
-//    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-//           return true
-//       }
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//
-//        if editingStyle == .delete {
-//            lists.remove(at: indexPath.row)
-//
-//            favorisEventTableView.beginUpdates()
-//            favorisEventTableView.deleteRows(at: [indexPath], with: .automatic)
-//            let appDelegate = UIApplication.shared.delegate as? AppDelegate
-//            let coreContext = appDelegate?.persistentContainer.viewContext
-//            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Favoris")
-//            do{
-//                let result = try coreContext!.fetch(fetchRequest)
-//                coreContext?.delete(result[indexPath.row])
-//                try coreContext?.save()
-//                favorisEventTableView.reloadData()
-//            } catch let error as NSError {
-//                print(error.userInfo)
-//            }
-//
-//
-//
-//
-//            favorisEventTableView.endUpdates()
-//
-//        }
-//    }
+    
     
     func loadFavoris() {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
@@ -97,7 +69,36 @@ class FavoriteEventsViewController: UIViewController, UITableViewDataSource , UI
             print(error.userInfo)
         }
     }
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: "toEventDetails", sender: indexPath)
+        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if(segue.identifier == "toEventDetails"){
+            
+            
+            let indexPath = sender as! IndexPath
+            
+            let item = lists[indexPath.row]
+            
+            let eventId = item.value(forKey: "id_event") as! Int
+            let eventName = item.value(forKey: "nom") as? String
+            
+            print("event clicked \(eventId)")
+            print("event name \(eventName!)")
+            
+            
+            let detailsViewController = segue.destination as! EventDetailsViewController
+            
+            
+            detailsViewController.idEvent = eventId
+            detailsViewController.nameEvent = eventName
+            
+        }
+    }
+    
     /*
      // MARK: - Navigation
      
@@ -109,3 +110,4 @@ class FavoriteEventsViewController: UIViewController, UITableViewDataSource , UI
      */
     
 }
+

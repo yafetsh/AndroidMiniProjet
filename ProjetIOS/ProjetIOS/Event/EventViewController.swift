@@ -31,7 +31,6 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTableViewBackgroundView()
         
         self.eventTableview.delegate = self
         self.eventTableview.dataSource = self
@@ -90,34 +89,24 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = eventTableview.dequeueReusableCell(withIdentifier: "eventCell")
+        let cell = eventTableview.dequeueReusableCell(withIdentifier: "EventCell")
         let contentView = cell?.viewWithTag(0)
         let eventId = contentView?.viewWithTag(4) as! UILabel
         
         let eventName = contentView?.viewWithTag(1) as! UILabel
         
         let eventDate = contentView?.viewWithTag(2) as! UILabel
-        let eventDescription = contentView?.viewWithTag(3) as! UITextView
         eventId.text = String(arr_event_id[indexPath.row] )
         //        let idEvent = eventId.text
         //        self.defaults.set(idEvent, forKey: "event_id")
         //        print(defaults.integer(forKey: "event_id"))
         eventName.text = arr_event_name[indexPath.row]
         eventDate.text = arr_event_datedebut[indexPath.row]
-        eventDescription.text = arr_event_description[indexPath.row]
         
         
         return cell!
     }
-    private func setupTableViewBackgroundView() {
-        let backgroundViewLabel = UILabel(frame: .zero)
-        backgroundViewLabel.textColor = .darkGray
-        backgroundViewLabel.numberOfLines = 0
-        backgroundViewLabel.text = " Oops, No results to show "
-        backgroundViewLabel.textAlignment = NSTextAlignment.center
-        backgroundViewLabel.font.withSize(20)
-        eventTableview.backgroundView = backgroundViewLabel
-    }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         performSegue(withIdentifier: "toEventDetails", sender: indexPath)

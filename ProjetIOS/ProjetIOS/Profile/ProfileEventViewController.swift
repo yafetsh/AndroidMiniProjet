@@ -18,11 +18,17 @@ class ProfileEventViewController: UIViewController {
     @IBOutlet weak var namelbl: UILabel!
     @IBOutlet weak var articleView: UIView!
     
+    @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var eventView: UIView!
     @IBOutlet weak var infoView: UIView!
     let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
+        
+        profileImage?.layer.cornerRadius = (profileImage?.frame.size.width ?? 0.0) / 2
+                profileImage?.clipsToBounds = true
+                profileImage?.layer.borderWidth = 3.0
+                profileImage?.layer.borderColor = UIColor.white.cgColor
         let followingId =  defaults.integer(forKey: "profil_id")
                let followerId =  defaults.integer(forKey: "user_id")
                let serverUrl = "http://localhost:1337/follow/verify"

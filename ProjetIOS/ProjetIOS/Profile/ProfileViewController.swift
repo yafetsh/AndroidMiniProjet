@@ -54,9 +54,51 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate,UI
     }
     
     @IBAction func cameraTapped(_ sender: Any) {
+        
+        
         imagePicker.sourceType = .savedPhotosAlbum
         imagePicker.allowsEditing = true
         present(imagePicker, animated: true, completion: nil)
+        
+        let connectedUserId =  defaults.integer(forKey: "user_id")
+        print(connectedUserId)
+        let serverUrl = "http://localhost:1337/user/edit/image/\(connectedUserId)"
+ let imgstrin = profileImage.image!.pngData()!.base64EncodedString()
+        
+        let updateRequest = [
+            "image_user" : imgstrin
+          
+        ]
+        
+        print(updateRequest)
+        
+        
+        
+        Alamofire.request(serverUrl, method: .put, parameters: updateRequest, encoding: JSONEncoding.default, headers: nil).responseString { (responseObject) -> Void in
+            if responseObject.result.isSuccess {
+                let resJson = JSON(responseObject.result.value!)
+                print(resJson)
+                
+                if (resJson == "Image modifié avec succés")
+                {
+                    let myalert = UIAlertController(title: "MERCI", message: "Image modifiés avec succés", preferredStyle: UIAlertController.Style.alert)
+                    
+                    myalert.addAction(UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+                    })
+                    self.present(myalert, animated: true)
+                }
+         
+                
+                
+            }
+            if responseObject.result.isFailure {
+                let error : Error = responseObject.result.error!
+                print(error)
+            }
+            
+            
+        }
+
         
         
     }

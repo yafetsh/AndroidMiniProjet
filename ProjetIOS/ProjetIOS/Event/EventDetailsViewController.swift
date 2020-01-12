@@ -13,7 +13,6 @@ import CoreData
 
 class EventDetailsViewController: UIViewController {
     
-    @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var namelabel: UILabel!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var btn_details: UIButton!
@@ -35,41 +34,60 @@ class EventDetailsViewController: UIViewController {
     let defaults = UserDefaults.standard
     
     var lists : [NSManagedObject] = []
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        //            if(segue.identifier == "toArticleDetails"){
+        
+        let eventId = idEvent
+        let eventName = nameEvent
+        let detailsViewController = segue.destination as! DetailsEventContainerViewController
+        detailsViewController.id = eventId
+        detailsViewController.name = eventName
+        
+        
+        //            }
+        
+    }
     
     override func viewDidLoad() {
-             let serverUrl = "http://localhost:1337/participant/verify"
-                
-        //        let eventId =  defaults.integer(forKey: "event_id")
-                let userId =  defaults.integer(forKey: "user_id")
-                
-                let addParticipantRequest = [
-                    "id_user" : userId,
-                    "id_evenement" : idEvent!
-                    
-                ]
+        
+        profileImage?.layer.cornerRadius = (profileImage?.frame.size.width ?? 0.0) / 2
+        profileImage?.clipsToBounds = true
+        profileImage?.layer.borderWidth = 3.0
+        profileImage?.layer.borderColor = UIColor.white.cgColor
+        let serverUrl = "http://localhost:1337/participant/verify"
+        
+        let eventId =  defaults.integer(forKey: "event_id")
+        let userId =  defaults.integer(forKey: "user_id")
+        
+        let addParticipantRequest = [
+            "id_user" : userId,
+            "id_evenement" : idEvent!
+            
+        ]
         
         Alamofire.request(serverUrl, method: .post, parameters: addParticipantRequest, encoding: JSONEncoding.default, headers: nil).responseJSON { (responseObject) -> Void in
-                                     if responseObject.result.isSuccess {
-                                         let resJson1 = JSON(responseObject.result.value!)
-                                         print(resJson1)
-                                         if (resJson1 == "participated already")
-                                         {
-                                           self.btn_participate.setTitle("Annuler", for: .normal)
-                                            self.btn_participate.backgroundColor = .red
-                                            if #available(iOS 13.0, *) {
-                                                self.btn_participate.setImage(UIImage(systemName: "xmark.seal.fill"), for: .normal)
-                                                self.btn_participate.tintColor = .white
-                                            }
-                                         
-                                             
-                                         }
-                                      
-                                     }
-                  if responseObject.result.isFailure {
-                                             let error : Error = responseObject.result.error!
-                                             print(error)
-                                         }
-                                     }
+            if responseObject.result.isSuccess {
+                let resJson1 = JSON(responseObject.result.value!)
+                print(resJson1)
+                if (resJson1 == "participated already")
+                {
+                    self.btn_participate.setTitle("Annuler", for: .normal)
+                    self.btn_participate.backgroundColor = .red
+                    if #available(iOS 13.0, *) {
+                        self.btn_participate.setImage(UIImage(systemName: "xmark.seal.fill"), for: .normal)
+                        self.btn_participate.tintColor = .white
+                    }
+                    
+                    
+                }
+                
+            }
+            if responseObject.result.isFailure {
+                let error : Error = responseObject.result.error!
+                print(error)
+            }
+        }
         let id =  defaults.integer(forKey: "event_id")
         //        let name =  defaults.integer(forKey: "event_name")
         nom.text = nameEvent
@@ -252,7 +270,7 @@ class EventDetailsViewController: UIViewController {
         let serverUrl = "http://localhost:1337/participant/add"
         let serverUrl2 = "http://localhost:1337/participant/delete"
         
-//        let eventId =  defaults.integer(forKey: "event_id")
+        //        let eventId =  defaults.integer(forKey: "event_id")
         let userId =  defaults.integer(forKey: "user_id")
         
         let addParticipantRequest = [

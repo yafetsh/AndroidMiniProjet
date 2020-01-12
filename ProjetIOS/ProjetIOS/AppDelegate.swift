@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Customize the UI of GMSAutocompleteViewController
         // Set some colors (colorLiteral is convenient)
-          let barColor: UIColor =  _ColorLiteralType(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+        let barColor: UIColor =  _ColorLiteralType(red: 0, green: 0.2, blue: 0.4196078479, alpha: 1)
         let backgroundColor: UIColor =  _ColorLiteralType(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         let textColor: UIColor =  _ColorLiteralType(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         // Navigation bar background.

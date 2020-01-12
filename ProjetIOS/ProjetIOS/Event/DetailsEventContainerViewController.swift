@@ -20,6 +20,9 @@ class DetailsEventContainerViewController: UIViewController {
     @IBOutlet weak var debut: UILabel!
     @IBOutlet weak var type: UILabel!
     @IBOutlet weak var prix: UILabel!
+    @IBOutlet weak var idlbl: UILabel!
+    @IBOutlet weak var nomlbl: UILabel!
+
     @IBOutlet weak var infoline: UILabel!
     @IBOutlet weak var descriptionlbl: UITextView!
     var arr_event_lieux = [String]()
@@ -27,7 +30,9 @@ class DetailsEventContainerViewController: UIViewController {
     var arr_event_type = [String]()
     var arr_event_datedebut = [String]()
     var arr_event_description = [String]()
-    var idEvent:String?
+    var id:Int?
+    var name:String?
+    
     let defaults = UserDefaults.standard
     
     
@@ -38,8 +43,8 @@ class DetailsEventContainerViewController: UIViewController {
         profileImage?.layer.borderWidth = 3.0
         profileImage?.layer.borderColor = UIColor.white.cgColor
         
-        let eventId =  defaults.integer(forKey: "event_id")
-        let myapiurl = "http://localhost:1337/evenement/show/\(eventId)"
+        //        let eventId =  defaults.integer(forKey: "event_id")
+        let myapiurl = "http://localhost:1337/evenement/show/\(id!)"
         
         Alamofire.request(myapiurl).responseJSON { (myresponse) in
             switch myresponse.result{
@@ -47,12 +52,13 @@ class DetailsEventContainerViewController: UIViewController {
                 print("response: \(myresponse.result)")
                 let myresult = try? JSON(data: myresponse.data!)
                 print(myresult!["evenement"])
-                
+
                 let resultArray = myresult!["evenement"]
                 
                 for i in resultArray.arrayValue {
                     self.prix.text = "\(i["prix_evenement"].stringValue) DT"
-
+                    self.idlbl.text = "\(i["id_evenement"].stringValue) DT"
+                    self.nomlbl.text = i["nom_evenement"].stringValue
                     self.infoline.text = i["infoline"].stringValue
                     self.difficulte.text = "Difficulté:  \(i["difficulte_evenement"].stringValue)/10"
                     self.lieux.text = "Lieux: \(i["lieux_evenement"].stringValue)"
@@ -63,6 +69,8 @@ class DetailsEventContainerViewController: UIViewController {
                     self.descriptionlbl.text = i["description_evenement"].stringValue
                     
                 }
+                self.defaults.set(self.idlbl.text, forKey: "event_id")
+                             self.defaults.set(self.nomlbl.text, forKey: "event_nom")
                 self.defaults.set(self.prix.text, forKey: "event_prix")
                 self.defaults.set(self.infoline.text, forKey: "event_infoline")
                 self.defaults.set(Int(self.difficulte.text!), forKey: "event_difficulte")
@@ -72,15 +80,7 @@ class DetailsEventContainerViewController: UIViewController {
                 self.defaults.set(self.debut.text, forKey: "event_debut")
                 self.defaults.set(self.fin.text, forKey: "event_fin")
                 self.defaults.set(self.descriptionlbl.text, forKey: "event_description")
-
-
-
-
-
-
-
-
-
+ 
                 break
                 
             case .failure:
@@ -93,25 +93,5 @@ class DetailsEventContainerViewController: UIViewController {
     }
     
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

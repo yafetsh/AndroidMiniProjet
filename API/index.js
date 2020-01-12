@@ -187,12 +187,39 @@ app.post('/login/',(req,res,next)=>{
 /* UPDATE PROFILE */
 app.put('/user/edit/:id', (req, res) => {
 
+
     const id = req.params.id;
     con.query('UPDATE user SET ? WHERE id = ?', [req.body, id], (error, result) => {
         if (error) throw error;
 
         res.send('Porifle modifié avec succés');
     });
+
+});
+
+/* UPDATE IMAGE PROFILE */
+app.put('/user/edit/image/:id',app.post(
+    "/upload",
+    multer({
+        storage: storage
+    }).single('upload'), function(req, res) {
+        console.log(req.file);
+        console.log(req.body);
+        res.redirect("/uploads/" + req.file.filename);
+        console.log(req.file.filename);
+        return res.status(200).end();
+    }),  (req, res) => {
+    var imageData = fs.readFileSync(req.file.path);
+
+    const id = req.params.id;
+    con.query('UPDATE user SET image_user = ? WHERE id = ?', [req.file.path, id], (error, result) => {
+        if (error) throw error;
+
+        res.send('Image modifié avec succés');
+        res.json({ success: true, file1: req.file, data: imageData, update: false })
+
+    });
+
 });
 
 /* SHOW PROFILE DETAILS */
@@ -232,6 +259,36 @@ app.get('/evenement/show', (req, res) => {
 app.get('/article/show', (req, res) => {
 
     con.query('SELECT * FROM article',((err, results, fields) => {
+        if(!err){
+            res.send({ articles:results });
+        }
+        else {
+            console.log(err)
+
+        }
+    }))
+
+});
+
+/* SHOW ARTICLE A LOUER */
+app.get('/article/louer', (req, res) => {
+
+    con.query('SELECT * FROM article where type_article = "location" ',((err, results, fields) => {
+        if(!err){
+            res.send({ articles:results });
+        }
+        else {
+            console.log(err)
+
+        }
+    }))
+
+});
+
+/* SHOW ARTICLE A VENDRE */
+app.get('/article/vendre', (req, res) => {
+
+    con.query('SELECT * FROM article where type_article = "vente" ',((err, results, fields) => {
         if(!err){
             res.send({ articles:results });
         }
@@ -531,8 +588,6 @@ app.delete('/participant/delete',(req,res,next)=>{
 
     });
 
-
-
 /* Increment nbr place*/
 app.put('/annuler/:id', (req, res) => {
     const id = req.params.id;
@@ -599,12 +654,29 @@ app.get('/profile/event/:id', (req, res) => {
 
 });
 
+/* Display which user creates the article */
+app.get('/profile/article/:id', (req, res) => {
+
+    const id = req.params.id;
+
+    con.query('SELECT article.id_article, article.user_id ,user.id, user.name, user.prenom FROM article INNER JOIN user ON article.user_id = user.id where article.id_article = ? ',[id],((err, results, fields) => {
+        if(!err){
+            res.send({ articles:results });
+        }
+        else {
+            console.log(err)
+
+        }
+    }))
+
+});
+
 /* SHOW MY ARTICLES */
 app.get('/myarticles/:id', (req, res) => {
     const id = req.params.id;
 
 
-    con.query('SELECT * FROM article WHERE id_user = ?',[id],((err, results, fields) => {
+    con.query('SELECT * FROM article WHERE user_id = ?',[id],((err, results, fields) => {
         if(!err){
             res.send({ articles:results });
         }
@@ -631,6 +703,78 @@ app.get('/profil/info/:id', (req, res) => {
     }))
 
 });
+/* SEND MESSAGE */
+app.post('/message/send',(req,res,next)=>{
+    var post_data = req.body;  //Get POST params
+
+    var id_sender = post_data.id_sender;
+    var id_receiver = post_data.id_receiver;
+    var message = post_data.message;
+
+
+    con.query('INSERT INTO `message`(`id_sender`, `id_receiver`,`message`, `date_message`)' +
+                'VALUES (?,?,?,NOW())', [id_sender, id_receiver, message], function (err, result, fields) {
+
+            res.send('message envoyé avec succés');
+
+
+
+    });
+});
+
+
+
+
+
+
+
+
+app.get('/message/show/:id', (req, res) => {
+    var post_data = req.body;  //Get POST params
+
+    const id = req.params.id;
+
+
+    con.query('SELECT * FROM `message` WHERE id_sender =?' ,[id],  (error, result) => {
+        // if (error) throw error;
+
+        if(!error){
+            res.send({ messages:result });
+        }
+        else {
+            console.log(error)
+
+        }
+    });
+
+});
+
+/*var storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'public/uploads')
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.fieldname + '-' + Date.now()+'.'+file.originalname)
+    }
+});
+var upload = multer({storage: storage});
+
+module.exports = upload;
+
+
+router.post('/upload',upload.single('profile'), function (req, res) {
+    if (!req.file) {
+        console.log("No file received");
+        message = "Error! in image upload.";
+        res.render('index',{message: message, status:'danger'});
+
+    } else {
+        console.log('file received');
+        console.log(req.file.filename);
+        message = "Successfully! uploaded";
+        res.json({image: req.file.filename});
+    }
+});*/
 
 //Start Server
 app.listen(1337,()=>{

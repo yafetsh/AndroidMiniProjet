@@ -26,7 +26,7 @@ class AcceuilViewController:  UIViewController{
         super.viewDidLoad()
         let nom = defaults.object(forKey: "user_name") as? String
         let prenom_connected = defaults.object(forKey: "user_prenom") as? String
-        prenom.text = "BIENVENUE \(String(prenom_connected!)) \(String(nom!))"
+//        prenom.text = "BIENVENUE \(String(prenom_connected!)) \(String(nom!))"
         self.navigationItem.setHidesBackButton(true, animated:true)
         self.view.gradienteBackground(colors: (initColor: UIColor(rgb: 0x6A82FB), endColor: UIColor(rgb: 0xFC5C7D)), orientation: .bottomRightTopLeft)
         let menuItems = self.getButtonsParameters()
@@ -116,13 +116,13 @@ extension AcceuilViewController: StackMenuDelegate {
     
     @objc func stackMenu( pressedButtonAtIndex: Int) {
         print("Pressed: \(#function) index: \(pressedButtonAtIndex)")
-        if (pressedButtonAtIndex==1){
+        if (pressedButtonAtIndex==2){
             performSegue(withIdentifier: "toEvent", sender: nil)
         }
         if (pressedButtonAtIndex==0){
             performSegue(withIdentifier: "toProfile", sender: nil)
         }
-        if (pressedButtonAtIndex==2){
+        if (pressedButtonAtIndex==1){
             performSegue(withIdentifier: "toArticle", sender: nil)
         }
     }
