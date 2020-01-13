@@ -22,11 +22,13 @@ class AcceuilViewController:  UIViewController{
     var usr : String = ""
     let defaults = UserDefaults.standard
     override func viewDidLoad() {
-        
+        let backButton = UIBarButtonItem(title: "", style: .plain, target: navigationController, action: nil)
+navigationItem.leftBarButtonItem = backButton
+
         super.viewDidLoad()
         let nom = defaults.object(forKey: "user_name") as? String
         let prenom_connected = defaults.object(forKey: "user_prenom") as? String
-//        prenom.text = "BIENVENUE \(String(prenom_connected!)) \(String(nom!))"
+        prenom.text = "Bienvenue \(String(prenom_connected!)) \(String(nom!))"
         self.navigationItem.setHidesBackButton(true, animated:true)
         self.view.gradienteBackground(colors: (initColor: UIColor(rgb: 0x6A82FB), endColor: UIColor(rgb: 0xFC5C7D)), orientation: .bottomRightTopLeft)
         let menuItems = self.getButtonsParameters()
@@ -78,21 +80,21 @@ class AcceuilViewController:  UIViewController{
                                                textMenuItem: "Camping")
         let lineStatus = getMenuItemConfiguration(imageName: "linestatus",
                                                   gradient: Gradient(colors: (initColor: UIColor(rgb: 0xfc4a1a), endColor: UIColor(rgb: 0xf7b733)), orientation: GradientOrientation.bottomRightTopLeft),
-                                                  textMenuItem: "Camping Gear")
+                                                  textMenuItem: "Articles")
         
         let tubeLines = getMenuItemConfiguration(imageName: "tubelines",
                                                  gradient: Gradient(colors: (initColor: UIColor(rgb: 0x1c92d2), endColor: UIColor(rgb: 0xf2fcfe)), orientation: GradientOrientation.bottomRightTopLeft),
-                                                 textMenuItem: "Tubelines")
-        let bike = getMenuItemConfiguration(imageName: "bike",
-                                            gradient: Gradient(colors: (initColor: UIColor(rgb: 0x2c3e50), endColor: UIColor(rgb: 0x4CA1AF)),
-                                                               orientation: GradientOrientation.bottomRightTopLeft),
-                                            textMenuItem: "Bikes")
-        let bus = getMenuItemConfiguration(imageName: "bus",
-                                           gradient: Gradient(colors: (initColor: UIColor(rgb: 0x834d9b), endColor: UIColor(rgb: 0xd04ed6)),
-                                                              orientation: GradientOrientation.bottomRightTopLeft),
-                                           textMenuItem: "Bus Stops")
+                                                 textMenuItem: "Mes participations")
+//        let bike = getMenuItemConfiguration(imageName: "bike",
+//                                            gradient: Gradient(colors: (initColor: UIColor(rgb: 0x2c3e50), endColor: UIColor(rgb: 0x4CA1AF)),
+//                                                               orientation: GradientOrientation.bottomRightTopLeft),
+//                                            textMenuItem: "Bikes")
+//        let bus = getMenuItemConfiguration(imageName: "bus",
+//                                           gradient: Gradient(colors: (initColor: UIColor(rgb: 0x834d9b), endColor: UIColor(rgb: 0xd04ed6)),
+//                                                              orientation: GradientOrientation.bottomRightTopLeft),
+//                                           textMenuItem: "Bus Stops")
         
-        parameters = [airquality, journey, lineStatus, tubeLines, bike, bus]
+        parameters = [airquality, journey, lineStatus, tubeLines]
         return parameters
     }
     

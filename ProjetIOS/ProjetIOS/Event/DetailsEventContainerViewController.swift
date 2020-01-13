@@ -60,9 +60,9 @@ class DetailsEventContainerViewController: UIViewController {
                     self.idlbl.text = "\(i["id_evenement"].stringValue) DT"
                     self.nomlbl.text = i["nom_evenement"].stringValue
                     self.infoline.text = i["infoline"].stringValue
-                    self.difficulte.text = "Difficulté:  \(i["difficulte_evenement"].stringValue)/10"
-                    self.lieux.text = "Lieux: \(i["lieux_evenement"].stringValue)"
-                    self.distance.text = "Distance: \(i["distance_evenement"].stringValue) KM"
+                    self.difficulte.text = "\(i["difficulte_evenement"].stringValue)/10"
+                    self.lieux.text = "\(i["lieux_evenement"].stringValue)"
+                    self.distance.text = "\(i["distance_evenement"].stringValue) KM"
                     self.type.text = i["type_evenement"].stringValue
                     self.debut.text = " De \(i["date_debut_evenement"].stringValue) à "
                     self.fin.text = i["date_fin_evenement"].stringValue

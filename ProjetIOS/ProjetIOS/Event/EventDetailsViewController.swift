@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import CoreData
+import AlamofireImage
 
 class EventDetailsViewController: UIViewController {
     
@@ -30,6 +31,8 @@ class EventDetailsViewController: UIViewController {
     var arr_user_id = [String]()
     var arr_user_name = [String]()
     var arr_user_prenom = [String]()
+    var arr_user_image = [String]()
+
     
     let defaults = UserDefaults.standard
     
@@ -108,6 +111,8 @@ class EventDetailsViewController: UIViewController {
                 self.arr_user_id.removeAll()
                 self.arr_user_name.removeAll()
                 self.arr_user_prenom.removeAll()
+                self.arr_user_image.removeAll()
+
                 
                 for i in resultArray.arrayValue {
                     //                    print(i)
@@ -121,9 +126,13 @@ class EventDetailsViewController: UIViewController {
                     self.arr_user_name.append(user_name)
                     let user_prenom = i["prenom"].stringValue
                     self.arr_user_prenom.append(user_prenom)
+                    let user_image = i["image_user"].stringValue
+                                   self.arr_user_image.append(user_image)
                     self.namelabel.text = "\(i["name"].stringValue) \(i["prenom"].stringValue)"
                     //                    let profil = "\(i["name"].stringValue) \(i["prenom"].stringValue)"
                     self.defaults.set(("\(i["name"].stringValue) \(i["prenom"].stringValue)"), forKey: "profil")
+                    self.profileImage.af_setImage(withURL: URL(string: "http://localhost:1337/upload/"+i["image_user"].stringValue)!)
+
                     
                     
                     
@@ -265,7 +274,7 @@ class EventDetailsViewController: UIViewController {
             print(error.userInfo)
         }
     }
-    
+    //********************************** BOUTON PARTICIPER ********************************************
     @IBAction func btn_participate(_ sender: Any) {
         let serverUrl = "http://localhost:1337/participant/add"
         let serverUrl2 = "http://localhost:1337/participant/delete"

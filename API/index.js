@@ -8,13 +8,18 @@ var express = require('express');
 var mysql = require('mysql');
 var bodyParser = require('body-parser');
 var multer, storage, path, crypto;
-multer = require('multer')
-path = require('path');
-var form = "<!DOCTYPE HTML><html><body>" +
-    "<form method='post' action='/upload' enctype='multipart/form-data'>" +
-    "<input type='file' name='upload'/>" +
-    "<input type='submit' /></form>" +
-    "</body></html>";
+multer = require('multer');
+//path = require('fs');
+//var upload = multer({ dest: 'Documents/ESPRIT/Semestre\ 1/AndroidMiniProject/API/upload/' });
+var upload = multer({ dest: './upload' });
+//var upload = multer({ dest: 'upload/' });
+
+
+var fs = require('fs');
+
+var app=express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 //cmnt
 //Connect to MySQL
 var con = mysql.createConnection({
@@ -76,17 +81,7 @@ function checkHashPassword(userPassword,salt) {
     
 }
 
-var app = express();
-app.use(bodyParser.json()); // Accept JSON params
-app.use(bodyParser.urlencoded({extended:true})); //Accept UrlEncoded params
 
-app.get('/', function (req, res){
-    res.writeHead(200, {'Content-Type': 'text/html' });
-    res.end(form);
-
-});
-
-var fs = require('fs');
 
 storage = multer.diskStorage({
     destination: './uploads/',
@@ -113,11 +108,12 @@ app.post(
         return res.status(200).end();
     });
 
+
 app.get('/uploads/:upload', function (req, res){
     file = req.params.upload;
     console.log(req.params.upload);
-    var img = fs.readFileSync(__dirname + "/uploads/" + file);
-    res.writeHead(200, {'Content-Type': 'image/png' });
+    var img = fs.readFileSync(__dirname +"/upload/"+ file);
+    //res.writeHead(200, {'Content-Type': 'image/png' });
     res.end(img, 'binary');
 
 });
@@ -198,25 +194,15 @@ app.put('/user/edit/:id', (req, res) => {
 });
 
 /* UPDATE IMAGE PROFILE */
-app.put('/user/edit/image/:id',app.post(
-    "/upload",
-    multer({
-        storage: storage
-    }).single('upload'), function(req, res) {
-        console.log(req.file);
-        console.log(req.body);
-        res.redirect("/uploads/" + req.file.filename);
-        console.log(req.file.filename);
-        return res.status(200).end();
-    }),  (req, res) => {
+app.put('/user/edit/image/:id', upload.single('file'), (req, res) => {
     var imageData = fs.readFileSync(req.file.path);
 
     const id = req.params.id;
-    con.query('UPDATE user SET image_user = ? WHERE id = ?', [req.file.path, id], (error, result) => {
+    con.query('UPDATE user SET image_user = ? WHERE id = ?', [req.file.filename, id], (error, result) => {
         if (error) throw error;
 
-        res.send('Image modifié avec succés');
-        res.json({ success: true, file1: req.file, data: imageData, update: false })
+        res.json("Image uploaded")
+
 
     });
 
@@ -642,7 +628,7 @@ app.get('/profile/event/:id', (req, res) => {
 
     const id = req.params.id;
 
-    con.query('SELECT evenement.id_evenement, evenement.id_user ,user.id, user.name, user.prenom FROM evenement INNER JOIN user ON evenement.id_user = user.id where evenement.id_evenement = ? ',[id],((err, results, fields) => {
+    con.query('SELECT evenement.id_evenement, evenement.id_user ,user.id, user.name, user.prenom, user.image_user FROM evenement INNER JOIN user ON evenement.id_user = user.id where evenement.id_evenement = ? ',[id],((err, results, fields) => {
         if(!err){
             res.send({ evenements:results });
         }
@@ -695,6 +681,40 @@ app.get('/profil/info/:id', (req, res) => {
     con.query('SELECT id,email,tel_user FROM user WHERE id = ?',[id],((err, results, fields) => {
         if(!err){
             res.send({ users:results });
+        }
+        else {
+            console.log(err)
+
+        }
+    }))
+
+});
+
+/* SHOW PROFIL ARTICLES */
+app.get('/profil/article/:id', (req, res) => {
+    const id = req.params.id;
+
+
+    con.query('SELECT * FROM article WHERE user_id = ?',[id],((err, results, fields) => {
+        if(!err){
+            res.send({ articles:results });
+        }
+        else {
+            console.log(err)
+
+        }
+    }))
+
+});
+
+/* SHOW PROFIL EVENTS */
+app.get('/profil/event/:id', (req, res) => {
+    const id = req.params.id;
+
+
+    con.query('SELECT * FROM evenement WHERE id_user = ?',[id],((err, results, fields) => {
+        if(!err){
+            res.send({ evenements:results });
         }
         else {
             console.log(err)
@@ -775,8 +795,8 @@ router.post('/upload',upload.single('profile'), function (req, res) {
         res.json({image: req.file.filename});
     }
 });*/
-
 //Start Server
 app.listen(1337,()=>{
     console.log('Restful Running on port 1337');
+
 })

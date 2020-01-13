@@ -1,5 +1,7 @@
 PODS:
   - Alamofire (4.9.1)
+  - AlamofireImage (3.6.0):
+    - Alamofire (~> 4.9)
   - AppAuth (1.3.0):
     - AppAuth/Core (= 1.3.0)
     - AppAuth/ExternalUserAgent (= 1.3.0)
@@ -50,6 +52,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - AlamofireImage
   - BATabBarController (~> 2.0.0)
   - FacebookCore
   - FacebookLogin
@@ -62,6 +65,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - AlamofireImage
     - AppAuth
     - BATabBarController
     - FacebookCore
@@ -79,6 +83,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  AlamofireImage: be9963c6582d68b39e89191f64c82a7d7bf40fdd
   AppAuth: 73574f3013a1e65b9601a3ddc8b3158cce68c09d
   BATabBarController: a4e936e3ae20ea0e55fb20ea7e57eaca302d4e18
   FacebookCore: ba86524b66cfa86d0f8e65d08faa8504a9f732dd
@@ -94,6 +99,6 @@ SPEC CHECKSUMS:
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 0998de59f90f1765cfec2add0abb8ce6fe72e6f1
+PODFILE CHECKSUM: 584934d9d8ab7955b6b6fa272392633f891328e7
 
 COCOAPODS: 1.8.4

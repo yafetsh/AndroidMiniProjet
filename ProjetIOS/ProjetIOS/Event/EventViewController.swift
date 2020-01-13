@@ -84,6 +84,8 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         // Do any additional setup after loading the view.
     }
+//    func performSegue(withIdentifier: "toAddEvent", sender: indexPath)
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arr_event_id.count
     }
@@ -96,12 +98,16 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let eventName = contentView?.viewWithTag(1) as! UILabel
         
         let eventDate = contentView?.viewWithTag(2) as! UILabel
+        let eventLieux = contentView?.viewWithTag(6) as! UILabel
+
         eventId.text = String(arr_event_id[indexPath.row] )
         //        let idEvent = eventId.text
         //        self.defaults.set(idEvent, forKey: "event_id")
         //        print(defaults.integer(forKey: "event_id"))
         eventName.text = arr_event_name[indexPath.row]
         eventDate.text = arr_event_datedebut[indexPath.row]
+        eventLieux.text = arr_event_lieux[indexPath.row]
+
         
         
         return cell!

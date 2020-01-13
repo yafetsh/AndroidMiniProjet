@@ -59,48 +59,25 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate,UI
         imagePicker.sourceType = .savedPhotosAlbum
         imagePicker.allowsEditing = true
         present(imagePicker, animated: true, completion: nil)
-        
-        let connectedUserId =  defaults.integer(forKey: "user_id")
-        print(connectedUserId)
-        let serverUrl = "http://localhost:1337/user/edit/image/\(connectedUserId)"
- let imgstrin = profileImage.image!.pngData()!.base64EncodedString()
-        
-        let updateRequest = [
-            "image_user" : imgstrin
-          
-        ]
-        
-        print(updateRequest)
-        
-        
-        
-        Alamofire.request(serverUrl, method: .put, parameters: updateRequest, encoding: JSONEncoding.default, headers: nil).responseString { (responseObject) -> Void in
-            if responseObject.result.isSuccess {
-                let resJson = JSON(responseObject.result.value!)
-                print(resJson)
-                
-                if (resJson == "Image modifié avec succés")
-                {
-                    let myalert = UIAlertController(title: "MERCI", message: "Image modifiés avec succés", preferredStyle: UIAlertController.Style.alert)
-                    
-                    myalert.addAction(UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
-                    })
-                    self.present(myalert, animated: true)
-                }
-         
-                
-                
-            }
-            if responseObject.result.isFailure {
-                let error : Error = responseObject.result.error!
-                print(error)
-            }
-            
-            
-        }
 
+    }
+    func showToast(message : String) {
         
-        
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 35))
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.textAlignment = .center;
+        toastLabel.font = UIFont(name: "Montserrat-Light", size: 12.0)
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10;
+        toastLabel.clipsToBounds  =  true
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
+            toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
     }
     
     
@@ -123,8 +100,45 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate,UI
         ]
         
         print(updateRequest)
-        
-        
+     
+           let image_t:UIImage? = profileImage.image
+
+                let url = "http://localhost:1337/user/edit/image/\(connectedUserId)"
+                                
+                Alamofire.upload(
+                    multipartFormData: {
+                        multipartFormData in
+                        
+                        
+                        let imageData = image_t!.jpegData(compressionQuality: 0.2)
+                        
+                        
+                        
+                        //badel nom mta3 teswira
+                        multipartFormData.append(imageData!, withName: "file", fileName:"upload"+".jpg" , mimeType: "image/jpg")
+                        
+                }, to: url,method: .put)
+                { (result) in
+                    switch result {
+                    case .success(let upload, _, _):
+                        //print(result)
+                        print("uploading")
+                        upload.uploadProgress(closure: { (progress) in
+                            
+                            print(progress)
+                        })
+                        
+                        upload.responseString { response in
+                            let userResponse = response.result.value
+                            print(userResponse!)
+                            self.showToast(message: userResponse! )
+                        }
+                        
+                    case .failure(let encodingError):
+                        print(encodingError);
+                        
+                    }
+                }
         
         Alamofire.request(serverUrl, method: .put, parameters: updateRequest, encoding: JSONEncoding.default, headers: nil).responseString { (responseObject) -> Void in
             if responseObject.result.isSuccess {

@@ -99,6 +99,8 @@ class ArticleVenteViewController: UIViewController,UITableViewDelegate,UITableVi
            
            let articleCategorie = contentView?.viewWithTag(2) as! UILabel
         let articleSousCategorie = contentView?.viewWithTag(5) as! UILabel
+        let articleLieux = contentView?.viewWithTag(6) as! UILabel
+
 
 //           let articleDescription = contentView?.viewWithTag(3) as! UITextView
            articleId.text = String(arr_article_id[indexPath.row])
@@ -108,6 +110,8 @@ class ArticleVenteViewController: UIViewController,UITableViewDelegate,UITableVi
            articleTitre.text = arr_article_titre[indexPath.row]
            articleCategorie.text = arr_article_categorie[indexPath.row]
            articleSousCategorie.text = arr_article_sous_categorie[indexPath.row]
+        articleLieux.text = arr_article_location[indexPath.row]
+
 //        articleDescription.text = arr_article_description[indexPath.row]
 
            

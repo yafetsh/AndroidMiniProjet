@@ -26,7 +26,10 @@ class ChatViewController: UIViewController,PNObjectEventListener, UITableViewDat
         tableView.delegate = self
         tableView.dataSource = self
         self.tableView.reloadData()
-
+//        let point = CGPoint(x: 0, y: self.tableView.contentSize.height + self.tableView.contentInset.bottom - self.tableView.frame.height)
+//              if point.y >= 0{
+//                self.tableView.setContentOffset(point, animated: true)
+//              }
 //        let numberOfSections = self.tableView.numberOfSections
 //        let numberOfRows = self.tableView.numberOfRows(inSection: numberOfSections-1)
 //
@@ -59,7 +62,7 @@ class ChatViewController: UIViewController,PNObjectEventListener, UITableViewDat
                   }
                  
                              
-//                  self.tableView.reloadData()
+                  self.tableView.reloadData()
                   break
                   
               case .failure:
@@ -168,57 +171,58 @@ class ChatViewController: UIViewController,PNObjectEventListener, UITableViewDat
                 let resJson = JSON(responseObject.result.value!)
                 print(resJson)
              
-//                let senderId =  self.defaults.integer(forKey: "user_id")
+                let senderId =  self.defaults.integer(forKey: "user_id")
+
+                        let myapiurl = "http://localhost:1337/message/show/\(senderId)"
+                          Alamofire.request(myapiurl, method: .get).responseJSON { (myresponse) in
+                              switch myresponse.result{
+                              case .success:
+                                  print(myresponse.result)
+                                  let myresult = try? JSON(data: myresponse.data!)
+//                                  print(myresult!["messages"])
 //
-//                        let myapiurl = "http://localhost:1337/message/show/\(senderId)"
-//                          Alamofire.request(myapiurl, method: .get).responseJSON { (myresponse) in
-//                              switch myresponse.result{
-//                              case .success:
-//                                  print(myresponse.result)
-//                                  let myresult = try? JSON(data: myresponse.data!)
-////                                  print(myresult!["messages"])
-////
-////                                  let resultArray = myresult!["messages"]
-////
-////                                  for i in resultArray.arrayValue {
-////                                      //                    print(i)
-////                                      let message_id = Int(i["id"].stringValue)
-////                                      self.arr_message_id.append(message_id!)
-////                                      let message = i["message"].stringValue
-////                                      self.arr_message.append(message)
-////                //                    print(self.arr_message)
-////                                      let message_date = i["date_message"].stringValue
-////                                      self.arr_message_date.append(message_date)
-////
-////                                  }
-//                                  self.tableView.reloadData()
-////                                  let numberOfSections = self.tableView.numberOfSections
-////                                  let numberOfRows = self.tableView.numberOfRows(inSection: numberOfSections-1)
-////
-////                                  let indexPath = IndexPath(row: numberOfRows-1 , section: numberOfSections-1)
-////                                  self.tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
-//                                  // First figure out how many sections there are
-////                                  let lastSectionIndex = self.tableView.numberOfSections-1
-////
-////                                  // Then grab the number of rows in the last section
-////                                  let lastRowIndex = self.tableView!.numberOfRows(inSection: lastSectionIndex) - 1
-////
-////                                  // Now just construct the index path
-////                                  let pathToLastRow = NSIndexPath(row: lastRowIndex, section: lastSectionIndex)
-////
-////                                  // Make the last row visible
-////                                  self.tableView?.scrollToRow(at: pathToLastRow as IndexPath, at: UITableView.ScrollPosition.none, animated: true)
-//                                  break
+//                                  let resultArray = myresult!["messages"]
 //
-//                              case .failure:
-//                                  print(myresponse.error!)
-//                                  break
-//                              }
-//                }
+//                                  for i in resultArray.arrayValue {
+//                                      //                    print(i)
+//                                      let message_id = Int(i["id"].stringValue)
+//                                      self.arr_message_id.append(message_id!)
+//                                      let message = i["message"].stringValue
+//                                      self.arr_message.append(message)
+//                //                    print(self.arr_message)
+//                                      let message_date = i["date_message"].stringValue
+//                                      self.arr_message_date.append(message_date)
+//
+//                                  }
+                                  self.tableView.reloadData()
+//                                  let numberOfSections = self.tableView.numberOfSections
+//                                  let numberOfRows = self.tableView.numberOfRows(inSection: numberOfSections-1)
+//
+//                                  let indexPath = IndexPath(row: numberOfRows-1 , section: numberOfSections-1)
+//                                  self.tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
+                                  // First figure out how many sections there are
+//                                  let lastSectionIndex = self.tableView.numberOfSections-1
+//
+//                                  // Then grab the number of rows in the last section
+//                                  let lastRowIndex = self.tableView!.numberOfRows(inSection: lastSectionIndex) - 1
+//
+//                                  // Now just construct the index path
+//                                  let pathToLastRow = NSIndexPath(row: lastRowIndex, section: lastSectionIndex)
+//
+//                                  // Make the last row visible
+//                                  self.tableView?.scrollToRow(at: pathToLastRow as IndexPath, at: UITableView.ScrollPosition.none, animated: true)
+                                  break
+
+                              case .failure:
+                                  print(myresponse.error!)
+                                  break
+                              }
+                }
                 
-//                self.arr_message.append(message)
-//                print(self.arr_message)
-//                self.tableView.reloadData()
+                self.arr_message.append(message)
+                print(self.arr_message)
+                self.tableView.reloadData()
+                self.messageTextField.text = ""
 
 
             }

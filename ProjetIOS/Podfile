@@ -15,6 +15,7 @@ target 'ProjetIOS' do
   pod 'GooglePlaces'
   pod 'GoogleMaps'
   pod 'PubNub', '~> 4'
+  pod 'AlamofireImage'
 
 
 
